@@ -23,7 +23,6 @@ class MenuOptionCell: UITableViewCell {
     // MARK: - 初期表示
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        print(reuseIdentifier!)
         backgroundColor = .darkGray
         selectionStyle = .none
 

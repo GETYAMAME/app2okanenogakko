@@ -35,6 +35,8 @@ class FirstViewController: UIViewController, WKUIDelegate,WKNavigationDelegate  
         let myRequest = URLRequest(url: myURL!)
         webView.load(myRequest)
         super.viewWillAppear(animated)
+        menuController = nil
+        isExpanded = false
     }
     
     // webview操作時のアクション
@@ -85,10 +87,11 @@ class FirstViewController: UIViewController, WKUIDelegate,WKNavigationDelegate  
         if menuController == nil {
             // add our menu controller here
             menuController = MenuController()
-            menuController.delegate = self
-            view.insertSubview(menuController.view, at:0)
+            //menuController.delegate = self
+            view.insertSubview(menuController.view,at: 0)
             addChild(menuController)
             menuController.didMove(toParent: self)
+            self.menuController.view.frame.origin.x = self.view.frame.width
             print("did add menu")
             
         }
@@ -99,8 +102,7 @@ class FirstViewController: UIViewController, WKUIDelegate,WKNavigationDelegate  
             // show menu
             UIView.animate(withDuration: 0.3, delay: 0,
                            options: .curveEaseInOut,animations:{
-                            
-                            self.view.frame.origin.x = -self.view.frame.width + 150
+                            self.view.frame.origin.x = -self.view.frame.width + 80
             } , completion: nil)
             
         } else {
