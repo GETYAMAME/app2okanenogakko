@@ -31,8 +31,9 @@ class MenuController: UIViewController {
         
         tableView.register(MenuOptionCell.self, forCellReuseIdentifier:reuseIdentifer)
         tableView.backgroundColor = .darkGray
-        //tableView.separatorStyle = .singleLine
+        tableView.separatorStyle = .none
         tableView.rowHeight = 60
+        tableView.allowsSelection = true
         
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -56,8 +57,10 @@ extension MenuController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let menuOption = MenuOption(rawValue: indexPath.row)
+        print("ss")
+        delegate?.handleMenuToggleImple(forMenuOption: menuOption)
     }
-    
 }

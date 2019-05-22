@@ -15,8 +15,6 @@ class MenuOptionCell: UITableViewCell {
         let label = UILabel()
         label.textColor = .blue
         label.font = UIFont.systemFont(ofSize: 18)
-        label.text = "Sample text"
-        print("add label")
         return label
     }()
 
@@ -29,7 +27,7 @@ class MenuOptionCell: UITableViewCell {
         self.addSubview(descriptionLabel)
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        descriptionLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 170).isActive = true
+        descriptionLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 20).isActive = true
 
     }
     

@@ -13,6 +13,7 @@ class FirstViewController: UIViewController, WKUIDelegate,WKNavigationDelegate  
         
     var menuController: MenuController!
     var isExpanded = false
+    var delegate: FirstViewController!
         
     // MARK: - 初期表示
     override func viewDidLoad() {
@@ -21,6 +22,7 @@ class FirstViewController: UIViewController, WKUIDelegate,WKNavigationDelegate  
     }
     // view表示時に毎度起動
     override func viewWillAppear(_ animated: Bool){
+        /**
         // 閲覧履歴初期化
         var webView = WKWebView()
         let webConfiguration = WKWebViewConfiguration()
@@ -34,7 +36,25 @@ class FirstViewController: UIViewController, WKUIDelegate,WKNavigationDelegate  
         let myURL = URL(string:"https://okaneno-gakko.jp/lp-app")
         let myRequest = URLRequest(url: myURL!)
         webView.load(myRequest)
+ **/
+        pageSetWebView(path: "lp-app")
         super.viewWillAppear(animated)
+    }
+    
+    func pageSetWebView(path :String){
+        // 閲覧履歴初期化
+        var webView = WKWebView()
+        let webConfiguration = WKWebViewConfiguration()
+        webView = WKWebView(frame:.zero, configuration: webConfiguration)
+        webView.uiDelegate = self
+        webView.navigationDelegate = self
+        view = webView
+        // スワイプ設定（戻る・進む）
+        webView.allowsBackForwardNavigationGestures = true
+        // 初期表示用のページ設定
+        let myURL = URL(string:"https://okaneno-gakko.jp/" + path)
+        let myRequest = URLRequest(url: myURL!)
+        webView.load(myRequest)
         menuController = nil
         isExpanded = false
     }
@@ -74,44 +94,69 @@ class FirstViewController: UIViewController, WKUIDelegate,WKNavigationDelegate  
     
     // メニューボタン制御
     @objc func handleMenuToggle(){
+        handleMenuToggleImple(forMenuOption: nil)
+    }
+    // メニューボタン制御の実装部分（MenuControllerから呼び出されるケースを想定）
+    func handleMenuToggleImple(forMenuOption menuOption: MenuOption?){
         print("aaa")
         if !isExpanded {
-            configureMenuController()
+        configureMenuController()
         }
-        
+    
         isExpanded = !isExpanded
-        animatePanel(shouldExpand: isExpanded)
+        animatePanel(shouldExpand: isExpanded, forMenuOption: menuOption)
     }
     
     func configureMenuController() {
         if menuController == nil {
             // add our menu controller here
             menuController = MenuController()
-            //menuController.delegate = self
+            menuController.delegate = self
             view.insertSubview(menuController.view,at: 0)
             addChild(menuController)
             menuController.didMove(toParent: self)
+            // menuControlleのviewを親viewの右横に配置する
             self.menuController.view.frame.origin.x = self.view.frame.width
             print("did add menu")
             
         }
     }
     
-    func animatePanel(shouldExpand: Bool){
+    func animatePanel(shouldExpand: Bool,forMenuOption menuOption: MenuOption?){
         if shouldExpand {
             // show menu
             UIView.animate(withDuration: 0.3, delay: 0,
                            options: .curveEaseInOut,animations:{
-                            self.view.frame.origin.x = -self.view.frame.width + 80
+                            //self.view.frame.origin.x = -self.view.frame.width + 200
+                            self.menuController.view.frame.origin.x = self.view.frame.width - 200
+                            self.view.bringSubviewToFront(self.menuController.view)
             } , completion: nil)
             
         } else {
             // hide menu
             
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
-                self.view.frame.origin.x = 0
-            } , completion: nil)
+                //self.view.frame.origin.x = 0
+                self.menuController.view.frame.origin.x = self.view.frame.width
+            }) { (_) in
+                guard let menuOption = menuOption else { return }
+                self.didSelectMenuOption(menuOption: menuOption)
+            }
         }
     }
+    func didSelectMenuOption(menuOption: MenuOption) {
+        switch menuOption {
+            
+        case .about:
+            pageSetWebView(path: "about")
+        case .first_challenge:
+            pageSetWebView(path: "first_challenge")
+        case .company:
+            pageSetWebView(path: "company")
+        case .contact:
+            pageSetWebView(path: "contact")
+        }
+    }
+
 }
 
