@@ -14,7 +14,14 @@ class FirstViewController: UIViewController, WKUIDelegate,WKNavigationDelegate  
     var menuController: MenuController!
     var isExpanded = false
     var delegate: FirstViewController!
-        
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+        return .slide
+    }
     // MARK: - 初期表示
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,25 +29,11 @@ class FirstViewController: UIViewController, WKUIDelegate,WKNavigationDelegate  
     }
     // view表示時に毎度起動
     override func viewWillAppear(_ animated: Bool){
-        /**
-        // 閲覧履歴初期化
-        var webView = WKWebView()
-        let webConfiguration = WKWebViewConfiguration()
-        webView = WKWebView(frame:.zero, configuration: webConfiguration)
-        webView.uiDelegate = self
-        webView.navigationDelegate = self
-        view = webView
-        // スワイプ設定（戻る・進む）
-        webView.allowsBackForwardNavigationGestures = true
-        // 初期表示用のページ設定
-        let myURL = URL(string:"https://okaneno-gakko.jp/lp-app")
-        let myRequest = URLRequest(url: myURL!)
-        webView.load(myRequest)
- **/
         pageSetWebView(path: "lp-app")
         super.viewWillAppear(animated)
     }
     
+    // リンク先の画面設定
     func pageSetWebView(path :String){
         // 閲覧履歴初期化
         var webView = WKWebView()
@@ -84,6 +77,7 @@ class FirstViewController: UIViewController, WKUIDelegate,WKNavigationDelegate  
         let imageView = UIImageView(image:UIImage(named:"logo.png"))
         imageView.contentMode = .scaleAspectFit
         self.navigationItem.titleView = imageView
+        self.navigationItem.frame
         // 戻るボタン設定
         let backButtonItem = UIBarButtonItem(title: "戻る", style: .plain, target: nil, action: nil)
         backButtonItem.tintColor = .lightGray
@@ -98,7 +92,6 @@ class FirstViewController: UIViewController, WKUIDelegate,WKNavigationDelegate  
     }
     // メニューボタン制御の実装部分（MenuControllerから呼び出されるケースを想定）
     func handleMenuToggleImple(forMenuOption menuOption: MenuOption?){
-        print("aaa")
         if !isExpanded {
         configureMenuController()
         }
@@ -107,6 +100,7 @@ class FirstViewController: UIViewController, WKUIDelegate,WKNavigationDelegate  
         animatePanel(shouldExpand: isExpanded, forMenuOption: menuOption)
     }
     
+    // メニュー部分の初期設定
     func configureMenuController() {
         if menuController == nil {
             // add our menu controller here
@@ -117,8 +111,7 @@ class FirstViewController: UIViewController, WKUIDelegate,WKNavigationDelegate  
             menuController.didMove(toParent: self)
             // menuControlleのviewを親viewの右横に配置する
             self.menuController.view.frame.origin.x = self.view.frame.width
-            print("did add menu")
-            
+            self.menuController.view.frame.origin.y = 0
         }
     }
     
@@ -127,7 +120,6 @@ class FirstViewController: UIViewController, WKUIDelegate,WKNavigationDelegate  
             // show menu
             UIView.animate(withDuration: 0.3, delay: 0,
                            options: .curveEaseInOut,animations:{
-                            //self.view.frame.origin.x = -self.view.frame.width + 200
                             self.menuController.view.frame.origin.x = self.view.frame.width - 200
                             self.view.bringSubviewToFront(self.menuController.view)
             } , completion: nil)

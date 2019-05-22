@@ -60,7 +60,6 @@ extension MenuController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let menuOption = MenuOption(rawValue: indexPath.row)
-        print("ss")
         delegate?.handleMenuToggleImple(forMenuOption: menuOption)
     }
 }

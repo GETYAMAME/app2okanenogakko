@@ -13,7 +13,7 @@ class MenuOptionCell: UITableViewCell {
     // MARK: - プロパティ
     let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .blue
+        label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 18)
         return label
     }()
@@ -21,7 +21,7 @@ class MenuOptionCell: UITableViewCell {
     // MARK: - 初期表示
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = .darkGray
+        backgroundColor = .green
         selectionStyle = .none
 
         self.addSubview(descriptionLabel)
