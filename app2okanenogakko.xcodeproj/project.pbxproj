@@ -15,6 +15,10 @@
 		63C410A12294DE590079DC08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63C4109F2294DE590079DC08 /* LaunchScreen.storyboard */; };
 		63C410AC2294DE590079DC08 /* app2okanenogakkoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C410AB2294DE590079DC08 /* app2okanenogakkoTests.swift */; };
 		63C410B72294DE590079DC08 /* app2okanenogakkoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C410B62294DE590079DC08 /* app2okanenogakkoUITests.swift */; };
+		63F355052294EAE500059363 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F355042294EAE500059363 /* logo.png */; };
+		63F355092294F1A700059363 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F355082294F1A700059363 /* MenuController.swift */; };
+		63F3550B2294F22D00059363 /* MenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F3550A2294F22D00059363 /* MenuOption.swift */; };
+		63F3550D2294F2CD00059363 /* MenuOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F3550C2294F2CD00059363 /* MenuOptionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		63C410B22294DE590079DC08 /* app2okanenogakkoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = app2okanenogakkoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		63C410B62294DE590079DC08 /* app2okanenogakkoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = app2okanenogakkoUITests.swift; sourceTree = "<group>"; };
 		63C410B82294DE590079DC08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63F355042294EAE500059363 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		63F355082294F1A700059363 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		63F3550A2294F22D00059363 /* MenuOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuOption.swift; path = image/MenuOption.swift; sourceTree = "<group>"; };
+		63F3550C2294F2CD00059363 /* MenuOptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuOptionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +107,13 @@
 		63C410932294DE560079DC08 /* app2okanenogakko */ = {
 			isa = PBXGroup;
 			children = (
+				63F355082294F1A700059363 /* MenuController.swift */,
+				63F3550A2294F22D00059363 /* MenuOption.swift */,
+				63F355032294EAB100059363 /* image */,
 				63C410942294DE560079DC08 /* AppDelegate.swift */,
 				63C410962294DE560079DC08 /* FirstViewController.swift */,
 				63C410982294DE560079DC08 /* SecondViewController.swift */,
+				63F3550C2294F2CD00059363 /* MenuOptionCell.swift */,
 				63C4109A2294DE560079DC08 /* Main.storyboard */,
 				63C4109D2294DE590079DC08 /* Assets.xcassets */,
 				63C4109F2294DE590079DC08 /* LaunchScreen.storyboard */,
@@ -126,6 +138,14 @@
 				63C410B82294DE590079DC08 /* Info.plist */,
 			);
 			path = app2okanenogakkoUITests;
+			sourceTree = "<group>";
+		};
+		63F355032294EAB100059363 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				63F355042294EAE500059363 /* logo.png */,
+			);
+			path = image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +252,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63F355052294EAE500059363 /* logo.png in Resources */,
 				63C410A12294DE590079DC08 /* LaunchScreen.storyboard in Resources */,
 				63C4109E2294DE590079DC08 /* Assets.xcassets in Resources */,
 				63C4109C2294DE560079DC08 /* Main.storyboard in Resources */,
@@ -259,8 +280,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63F355092294F1A700059363 /* MenuController.swift in Sources */,
+				63F3550D2294F2CD00059363 /* MenuOptionCell.swift in Sources */,
 				63C410992294DE560079DC08 /* SecondViewController.swift in Sources */,
 				63C410952294DE560079DC08 /* AppDelegate.swift in Sources */,
+				63F3550B2294F22D00059363 /* MenuOption.swift in Sources */,
 				63C410972294DE560079DC08 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
