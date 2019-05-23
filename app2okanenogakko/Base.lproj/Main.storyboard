@@ -92,6 +92,8 @@
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.49338626860000001" green="0.71981674429999998" blue="0.150336951" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="1" green="0.83848145928504481" blue="0.56523243621880681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="uZc-PC-9SE" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
@@ -102,11 +104,11 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--First-->
+        <!--講座一覧-->
         <scene sceneID="W00-y3-u8a">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uZc-PC-9SE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="講座一覧" image="note.png" landscapeImage="note.png" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Oej-fx-e0w">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -121,11 +123,11 @@
             </objects>
             <point key="canvasLocation" x="749.27536231884062" y="-320.08928571428572"/>
         </scene>
-        <!--Second-->
+        <!--スケジュール-->
         <scene sceneID="CxO-pV-hAr">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UJr-y9-V0c" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="スケジュール" image="calender.png" landscapeImage="calender.png" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kkI-s5-dVi">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -142,7 +144,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="calender.png" width="32" height="32"/>
+        <image name="note.png" width="32" height="32"/>
     </resources>
 </document>

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6360317B2296BDDC00D8C931 /* calender.png in Resources */ = {isa = PBXBuildFile; fileRef = 6360317A2296BDDC00D8C931 /* calender.png */; };
+		6360317D2296BEA900D8C931 /* note.png in Resources */ = {isa = PBXBuildFile; fileRef = 6360317C2296BEA900D8C931 /* note.png */; };
 		6391AF17229668AB007128BF /* AbstractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6391AF16229668AB007128BF /* AbstractViewController.swift */; };
 		63C410952294DE560079DC08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C410942294DE560079DC08 /* AppDelegate.swift */; };
 		63C410972294DE560079DC08 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C410962294DE560079DC08 /* FirstViewController.swift */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6360317A2296BDDC00D8C931 /* calender.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = calender.png; path = ../../../../Downloads/calender.png; sourceTree = "<group>"; };
+		6360317C2296BEA900D8C931 /* note.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = note.png; sourceTree = "<group>"; };
 		6391AF16229668AB007128BF /* AbstractViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractViewController.swift; sourceTree = "<group>"; };
 		63C410912294DE560079DC08 /* app2okanenogakko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = app2okanenogakko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63C410942294DE560079DC08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +150,8 @@
 		63F355032294EAB100059363 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				6360317C2296BEA900D8C931 /* note.png */,
+				6360317A2296BDDC00D8C931 /* calender.png */,
 				63F355042294EAE500059363 /* logo.png */,
 			);
 			path = image;
@@ -256,9 +262,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				63F355052294EAE500059363 /* logo.png in Resources */,
+				6360317B2296BDDC00D8C931 /* calender.png in Resources */,
 				63C410A12294DE590079DC08 /* LaunchScreen.storyboard in Resources */,
 				63C4109E2294DE590079DC08 /* Assets.xcassets in Resources */,
 				63C4109C2294DE560079DC08 /* Main.storyboard in Resources */,
+				6360317D2296BEA900D8C931 /* note.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -52,7 +52,7 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
     }
     
     // webview操作時のアクション
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
         let pageCount = webView.backForwardList.backList.count
         print(pageCount)
         if (0 < pageCount) {
@@ -63,6 +63,7 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
             let back = UIBarButtonItem(title: "戻る",style: .plain,target: webView,action: nil)
             back.tintColor = .lightGray
             self.navigationItem.leftBarButtonItem = back
+            return
         }
     }
     
