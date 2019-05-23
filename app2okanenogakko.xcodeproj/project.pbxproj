@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6391AF17229668AB007128BF /* AbstractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6391AF16229668AB007128BF /* AbstractViewController.swift */; };
 		63C410952294DE560079DC08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C410942294DE560079DC08 /* AppDelegate.swift */; };
 		63C410972294DE560079DC08 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C410962294DE560079DC08 /* FirstViewController.swift */; };
 		63C410992294DE560079DC08 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C410982294DE560079DC08 /* SecondViewController.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6391AF16229668AB007128BF /* AbstractViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractViewController.swift; sourceTree = "<group>"; };
 		63C410912294DE560079DC08 /* app2okanenogakko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = app2okanenogakko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63C410942294DE560079DC08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63C410962294DE560079DC08 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				63F355032294EAB100059363 /* image */,
 				63C410942294DE560079DC08 /* AppDelegate.swift */,
 				63C410962294DE560079DC08 /* FirstViewController.swift */,
+				6391AF16229668AB007128BF /* AbstractViewController.swift */,
 				63C410982294DE560079DC08 /* SecondViewController.swift */,
 				63F3550C2294F2CD00059363 /* MenuOptionCell.swift */,
 				63C4109A2294DE560079DC08 /* Main.storyboard */,
@@ -286,6 +289,7 @@
 				63C410952294DE560079DC08 /* AppDelegate.swift in Sources */,
 				63F3550B2294F22D00059363 /* MenuOption.swift in Sources */,
 				63C410972294DE560079DC08 /* FirstViewController.swift in Sources */,
+				6391AF17229668AB007128BF /* AbstractViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

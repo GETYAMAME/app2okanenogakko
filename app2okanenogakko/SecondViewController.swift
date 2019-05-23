@@ -6,15 +6,13 @@
 //  Copyright © 2019 Ryutaro Tada. All rights reserved.
 //
 
-import UIKit
-
-class SecondViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+class SecondViewController: AbstractViewController {
+        
+    // view表示時に毎度起動
+    override func viewWillAppear(_ animated: Bool){
+        // スケジュールを初期ページに設定
+        pageSetWebView(path: "schedule")
+        super.viewWillAppear(animated)
     }
-
-
+        
 }
-
