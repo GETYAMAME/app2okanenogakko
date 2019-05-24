@@ -27,7 +27,7 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         cofigureNavigationBar()
-        configureKurukuru(viewHeightFixSize: 0)
+        configureKurukuru()
     }
     // view表示時に毎度起動
     override func viewWillAppear(_ animated: Bool){
@@ -161,14 +161,14 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
             pageSetWebView(path: "contact")
         }
     }
-    func configureKurukuru(viewHeightFixSize:CGFloat){
+    func configureKurukuru(){
         // UIActivityIndicatorViewを生成
         indicator = UIActivityIndicatorView()
         indicator.style = .gray
         print(UIScreen.main.bounds.size.width)
         print(UIScreen.main.bounds.size.height)
         indicator.transform = CGAffineTransform(scaleX: 3, y: 3)
-        indicator.center = self.
+        indicator.center = self.view.center
         indicator.hidesWhenStopped = true
     }
     
