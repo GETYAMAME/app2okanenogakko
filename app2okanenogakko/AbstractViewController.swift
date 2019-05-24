@@ -14,6 +14,7 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
     var menuController: MenuController!
     var isExpanded = false
     var delegate: AbstractViewController!
+    var indicator: UIActivityIndicatorView!
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -26,6 +27,7 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         cofigureNavigationBar()
+        configureKurukuru(viewHeightFixSize: 0)
     }
     // view表示時に毎度起動
     override func viewWillAppear(_ animated: Bool){
@@ -50,8 +52,14 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
         menuController = nil
         isExpanded = false
     }
-    
-    // webview操作時のアクション
+
+    // webview読み込み準備
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        self.view.addSubview(indicator)
+        indicator.startAnimating()
+    }
+
+    // webview開始
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
         let pageCount = webView.backForwardList.backList.count
         print(pageCount)
@@ -65,6 +73,11 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
             self.navigationItem.leftBarButtonItem = back
             return
         }
+    }
+
+    // webview読み込み完了
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+         indicator.stopAnimating()
     }
     
     // MARK: - ハンドラー
@@ -147,6 +160,16 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
         case .contact:
             pageSetWebView(path: "contact")
         }
+    }
+    func configureKurukuru(viewHeightFixSize:CGFloat){
+        // UIActivityIndicatorViewを生成
+        indicator = UIActivityIndicatorView()
+        indicator.style = .gray
+        print(UIScreen.main.bounds.size.width)
+        print(UIScreen.main.bounds.size.height)
+        indicator.transform = CGAffineTransform(scaleX: 3, y: 3)
+        indicator.center = self.
+        indicator.hidesWhenStopped = true
     }
     
 }
