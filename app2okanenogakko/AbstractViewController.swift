@@ -80,6 +80,18 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
          indicator.stopAnimating()
     }
     
+    // webview target="_blank" に対応
+    func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
+        guard let url = navigationAction.request.url else {
+            return nil
+        }
+        
+        guard let targetFrame = navigationAction.targetFrame, targetFrame.isMainFrame else {
+            webView.load(URLRequest(url: url))
+            return nil
+        }
+        return nil
+    }
     // MARK: - ハンドラー
     
     func cofigureNavigationBar(){
@@ -120,11 +132,11 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
             menuController.delegate = self
             view.insertSubview(menuController.view,at: 0)
             addChild(menuController)
-            menuController.didMove(toParent: self)
+            self.menuController.didMove(toParent: self)
             // menuControlleのviewを親viewの右横に配置する
             self.menuController.view.frame.origin.x = self.view.frame.width
             self.menuController.view.frame.origin.y = 0
-        }
+            }
     }
     
     func animatePanel(shouldExpand: Bool,forMenuOption menuOption: MenuOption?){
@@ -132,7 +144,8 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
             // show menu
             UIView.animate(withDuration: 0.3, delay: 0,
                            options: .curveEaseInOut,animations:{
-                            self.menuController.view.frame.origin.x = self.view.frame.width - 200
+                            //self.menuController.view.frame.origin.x = self.view.frame.width - 200
+                            self.tabBarController?.view.frame.origin.x = -200
                             self.view.bringSubviewToFront(self.menuController.view)
             } , completion: nil)
             
@@ -141,7 +154,9 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
             
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
                 //self.view.frame.origin.x = 0
-                self.menuController.view.frame.origin.x = self.view.frame.width
+                //self.menuController.view.frame.origin.x = self.view.frame.width
+                //self.navigationController?.view.frame.origin.x = 0
+                self.tabBarController?.view.frame.origin.x = 0
             }) { (_) in
                 guard let menuOption = menuOption else { return }
                 self.didSelectMenuOption(menuOption: menuOption)
