@@ -29,6 +29,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		638A9EF32299693500BB51C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63CC633C2298DC22009B58F2 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7910D11DFF317002D6F4F44F5F6BF0C5;
+			remoteInfo = FirebaseMessaging;
+		};
+		638A9EF52299693500BB51C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63CC633C2298DC22009B58F2 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FCF1807B104D2937B2388BEF749BA8C8;
+			remoteInfo = Protobuf;
+		};
+		638A9EFF2299693500BB51C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63CC626D2298D628009B58F2 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7910D11DFF317002D6F4F44F5F6BF0C5;
+			remoteInfo = FirebaseMessaging;
+		};
+		638A9F012299693500BB51C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63CC626D2298D628009B58F2 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FCF1807B104D2937B2388BEF749BA8C8;
+			remoteInfo = Protobuf;
+		};
 		63C410A82294DE590079DC08 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 63C410892294DE560079DC08 /* Project object */;
@@ -563,11 +591,13 @@
 			isa = PBXGroup;
 			children = (
 				63CC632F2298D629009B58F2 /* FirebaseCore.framework */,
+				638A9F002299693500BB51C2 /* FirebaseMessaging.framework */,
 				63CC63312298D629009B58F2 /* GoogleUtilities.framework */,
 				63CC63332298D629009B58F2 /* nanopb.framework */,
 				63CC63352298D629009B58F2 /* Pods_app2okanenogakko.framework */,
 				63CC63372298D629009B58F2 /* Pods_app2okanenogakkoTests.framework */,
 				63CC63392298D629009B58F2 /* Pods_app2okanenogakkoUITests.framework */,
+				638A9F022299693500BB51C2 /* Protobuf.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1104,11 +1134,13 @@
 			isa = PBXGroup;
 			children = (
 				63CC63FE2298DC23009B58F2 /* FirebaseCore.framework */,
+				638A9EF42299693500BB51C2 /* FirebaseMessaging.framework */,
 				63CC64002298DC23009B58F2 /* GoogleUtilities.framework */,
 				63CC64022298DC23009B58F2 /* nanopb.framework */,
 				63CC64042298DC23009B58F2 /* Pods_app2okanenogakko.framework */,
 				63CC64062298DC23009B58F2 /* Pods_app2okanenogakkoTests.framework */,
 				63CC64082298DC23009B58F2 /* Pods_app2okanenogakkoUITests.framework */,
+				638A9EF62299693500BB51C2 /* Protobuf.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1766,6 +1798,34 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		638A9EF42299693500BB51C2 /* FirebaseMessaging.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FirebaseMessaging.framework;
+			remoteRef = 638A9EF32299693500BB51C2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		638A9EF62299693500BB51C2 /* Protobuf.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Protobuf.framework;
+			remoteRef = 638A9EF52299693500BB51C2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		638A9F002299693500BB51C2 /* FirebaseMessaging.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FirebaseMessaging.framework;
+			remoteRef = 638A9EFF2299693500BB51C2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		638A9F022299693500BB51C2 /* Protobuf.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Protobuf.framework;
+			remoteRef = 638A9F012299693500BB51C2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		63CC632F2298D629009B58F2 /* FirebaseCore.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;

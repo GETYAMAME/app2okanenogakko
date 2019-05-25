@@ -30,7 +30,7 @@ class MenuController: UIViewController {
         tableView.dataSource = self
         
         tableView.register(MenuOptionCell.self, forCellReuseIdentifier:reuseIdentifer)
-        tableView.backgroundColor = .darkGray
+        tableView.backgroundColor = .gray
         tableView.separatorStyle = .none
         tableView.rowHeight = 60
         tableView.allowsSelection = true
@@ -60,7 +60,6 @@ extension MenuController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let menuOption = MenuOption(rawValue: indexPath.row)
-        print("zxds")
         delegate?.handleMenuToggleImple(forMenuOption: menuOption)
     }
 }

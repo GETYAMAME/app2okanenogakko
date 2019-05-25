@@ -16,27 +16,21 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
     var delegate: AbstractViewController!
     var indicator: UIActivityIndicatorView!
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
-    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
-        return .slide
-    }
     // MARK: - 初期表示
     override func viewDidLoad() {
         super.viewDidLoad()
         cofigureNavigationBar()
         configureKurukuru()
-        
-       // let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("tapGesture:"))
-       // tapGestureRecognizer.cancelsTouchesInView = false
     }
     // view表示時に毎度起動
     override func viewWillAppear(_ animated: Bool){
         
     }
-    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        // ステータスバーの文字色を黒で指定
+        return .default
+    }
+
     // リンク先の画面設定
     func pageSetWebView(path :String){
         // 閲覧履歴初期化
@@ -55,7 +49,23 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
         menuController = nil
         isExpanded = false
     }
-
+    func pageSetWebView2(path :String){
+        // 閲覧履歴初期化
+        var webView = WKWebView()
+        let webConfiguration = WKWebViewConfiguration()
+        webView = WKWebView(frame:.zero, configuration: webConfiguration)
+        webView.uiDelegate = self
+        webView.navigationDelegate = self
+        view = webView
+        // スワイプ設定（戻る・進む）
+        webView.allowsBackForwardNavigationGestures = true
+        // 初期表示用のページ設定
+        let myURL = URL(string:"https://okaneno-gakko.jp/" + path)
+        let myRequest = URLRequest(url: myURL!)
+        webView.load(myRequest)
+        menuController = nil
+        isExpanded = false
+    }
     // webview読み込み準備
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         self.view.addSubview(indicator)
@@ -99,8 +109,8 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
     
     func cofigureNavigationBar(){
         // ナビゲーションバー全体の設定
-        navigationController?.navigationBar.barTintColor = .white
-        navigationController?.navigationBar.barStyle = .black
+        //navigationController?.navigationBar.barTintColor = .white
+        //navigationController?.navigationBar.barStyle = .black
         // ロゴ設定
         let imageView = UIImageView(image:UIImage(named:"logo.png"))
         imageView.contentMode = .scaleAspectFit
@@ -138,7 +148,7 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
             menuController.didMove(toParent: self)
             // menuControlleのviewを親viewの右横に配置する
             self.menuController.view.frame.origin.x = self.view.frame.width
-            //self.menuController.view.frame.origin.y = 0
+            // self.menuController.view.frame.origin.y = 20
             }
     }
     
@@ -147,12 +157,7 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
             // show menu
             UIView.animate(withDuration: 0.3, delay: 0,
                            options: .curveEaseInOut,animations:{
-                            self.menuController.view.frame.origin.x = self.view.frame.width - 200
-                            //self.tabBarController?.view.frame.origin.x = -100
-                            //self.view.frame.origin.x = -200
-                            //self.menuController.view.frame.origin.x = self.view.frame.width - 200
-                            self.tabBarController?.tabBar.frame.origin.x = -200
-                            self.navigationController?.navigationBar.frame.origin.x = -200
+                            self.menuController.view.frame.origin.x = 0
                             self.view.bringSubviewToFront(self.menuController.view)
             } , completion: nil)
             
@@ -160,11 +165,7 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
             // hide menu
             
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
-                //self.menuController.view.frame.origin.x = self.view.frame.width
-                self.view.frame.origin.x = 0
                 self.menuController.view.frame.origin.x = self.view.frame.width
-                self.tabBarController?.tabBar.frame.origin.x = 0
-                self.navigationController?.navigationBar.frame.origin.x = 0
             }) { (_) in
                 guard let menuOption = menuOption else { return }
                 self.didSelectMenuOption(menuOption: menuOption)
@@ -194,5 +195,5 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
         indicator.center = self.view.center
         indicator.hidesWhenStopped = true
     }
-    
+
 }
