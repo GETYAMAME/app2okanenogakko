@@ -28,6 +28,9 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
         super.viewDidLoad()
         cofigureNavigationBar()
         configureKurukuru()
+        
+       // let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("tapGesture:"))
+       // tapGestureRecognizer.cancelsTouchesInView = false
     }
     // view表示時に毎度起動
     override func viewWillAppear(_ animated: Bool){
@@ -130,12 +133,11 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
             // add our menu controller here
             menuController = MenuController()
             menuController.delegate = self
-            menuController.view.frame = CGRect(x: self.view.frame.width, y: 0, width: self.view.frame.width, height: self.view.frame.height)
             view.insertSubview(menuController.view,at: 0)
             addChild(menuController)
             menuController.didMove(toParent: self)
             // menuControlleのviewを親viewの右横に配置する
-            //self.menuController.view.frame.origin.x = 0
+            self.menuController.view.frame.origin.x = self.view.frame.width
             //self.menuController.view.frame.origin.y = 0
             }
     }
@@ -145,12 +147,13 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
             // show menu
             UIView.animate(withDuration: 0.3, delay: 0,
                            options: .curveEaseInOut,animations:{
-                            //self.menuController.view.frame.origin.x = self.view.frame.width - 200
-                            self.view.frame.origin.x = -200
                             self.menuController.view.frame.origin.x = self.view.frame.width - 200
+                            //self.tabBarController?.view.frame.origin.x = -100
+                            //self.view.frame.origin.x = -200
+                            //self.menuController.view.frame.origin.x = self.view.frame.width - 200
                             self.tabBarController?.tabBar.frame.origin.x = -200
                             self.navigationController?.navigationBar.frame.origin.x = -200
-                            self.navigationController?.view.bringSubviewToFront(self.menuController.view)
+                            self.view.bringSubviewToFront(self.menuController.view)
             } , completion: nil)
             
         } else {
@@ -158,7 +161,7 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
             
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
                 //self.menuController.view.frame.origin.x = self.view.frame.width
-                //self.view.frame.origin.x = 0
+                self.view.frame.origin.x = 0
                 self.menuController.view.frame.origin.x = self.view.frame.width
                 self.tabBarController?.tabBar.frame.origin.x = 0
                 self.navigationController?.navigationBar.frame.origin.x = 0
@@ -169,7 +172,6 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
         }
     }
     func didSelectMenuOption(menuOption: MenuOption) {
-        print("tap")
         switch menuOption {
             
         case .about:
