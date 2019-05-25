@@ -1,0 +1,6 @@
+framework module Pods_app2okanenogakkoTests {
+  umbrella header "Pods-app2okanenogakkoTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
