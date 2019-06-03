@@ -50,8 +50,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="0.49338626860000001" green="0.71981674429999998" blue="0.150336951" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="selectedImageTintColor" red="1" green="0.83848145928504481" blue="0.56523243621880681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.49338626861572266" green="0.71981674432754517" blue="0.15033695101737976" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.95385879278182983" green="0.59800732135772705" blue="0.1641576886177063" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="ZD6-2V-eX6" kind="relationship" relationship="viewControllers" id="dFF-sV-S6m"/>
@@ -66,7 +71,13 @@
         <scene sceneID="R2K-tX-Z3Y">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZD6-2V-eX6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="講座一覧" image="note.png" id="AEa-Jh-bMW"/>
+                    <tabBarItem key="tabBarItem" title="講座一覧" image="note.png" id="AEa-Jh-bMW">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bia-Nr-EAw">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -85,7 +96,13 @@
         <scene sceneID="ldV-Lc-uCt">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cPW-yd-VO4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="スケジュール" image="calender.png" id="rVE-wi-tOD"/>
+                    <tabBarItem key="tabBarItem" title="スケジュール" image="calender.png" id="rVE-wi-tOD">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="plG-tB-6lG">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

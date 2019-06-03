@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "app2okanenogakko/MenuController.swift"
-            timestampString = "580484756.684279"
+            timestampString = "581241424.293914"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "62"
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "app2okanenogakko/AbstractViewController.swift"
-            timestampString = "580484756.6844881"
+            timestampString = "581240568.307564"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
             landmarkName = "animatePanel(shouldExpand:forMenuOption:)"
             landmarkType = "7">
          </BreakpointContent>

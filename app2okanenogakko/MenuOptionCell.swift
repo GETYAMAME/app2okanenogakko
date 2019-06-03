@@ -21,7 +21,7 @@ class MenuOptionCell: UITableViewCell {
     // MARK: - 初期表示
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = .gray
+        backgroundColor = UIColor(red: 58/255, green: 162/255, blue: 164/255, alpha: 1)
         selectionStyle = .none
 
         self.addSubview(descriptionLabel)

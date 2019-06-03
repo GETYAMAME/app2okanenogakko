@@ -15,7 +15,7 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
     var isExpanded = false
     var delegate: AbstractViewController!
     var indicator: UIActivityIndicatorView!
-    
+    private var webView:WKWebView!
     // MARK: - 初期表示
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,24 +34,6 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
     // リンク先の画面設定
     func pageSetWebView(path :String){
         // 閲覧履歴初期化
-        var webView = WKWebView()
-        let webConfiguration = WKWebViewConfiguration()
-        webView = WKWebView(frame:.zero, configuration: webConfiguration)
-        webView.uiDelegate = self
-        webView.navigationDelegate = self
-        view = webView
-        // スワイプ設定（戻る・進む）
-        webView.allowsBackForwardNavigationGestures = true
-        // 初期表示用のページ設定
-        let myURL = URL(string:"https://okaneno-gakko.jp/" + path)
-        let myRequest = URLRequest(url: myURL!)
-        webView.load(myRequest)
-        menuController = nil
-        isExpanded = false
-    }
-    func pageSetWebView2(path :String){
-        // 閲覧履歴初期化
-        var webView = WKWebView()
         let webConfiguration = WKWebViewConfiguration()
         webView = WKWebView(frame:.zero, configuration: webConfiguration)
         webView.uiDelegate = self
@@ -108,9 +90,6 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
     // MARK: - ハンドラー
     
     func cofigureNavigationBar(){
-        // ナビゲーションバー全体の設定
-        //navigationController?.navigationBar.barTintColor = .white
-        //navigationController?.navigationBar.barStyle = .black
         // ロゴ設定
         let imageView = UIImageView(image:UIImage(named:"logo.png"))
         imageView.contentMode = .scaleAspectFit
@@ -148,8 +127,7 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
             menuController.didMove(toParent: self)
             // menuControlleのviewを親viewの右横に配置する
             self.menuController.view.frame.origin.x = self.view.frame.width
-            // self.menuController.view.frame.origin.y = 20
-            }
+        }
     }
     
     func animatePanel(shouldExpand: Bool,forMenuOption menuOption: MenuOption?){
@@ -176,13 +154,21 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
         switch menuOption {
             
         case .about:
-            pageSetWebView(path: "about")
+            let myURL = URL(string:"https://okaneno-gakko.jp/about")
+            let myRequest = URLRequest(url: myURL!)
+            webView.load(myRequest)
         case .first_challenge:
-            pageSetWebView(path: "first_challenge")
+            let myURL = URL(string:"https://okaneno-gakko.jp/first_challenge")
+            let myRequest = URLRequest(url: myURL!)
+            webView.load(myRequest)
         case .company:
-            pageSetWebView(path: "company")
+            let myURL = URL(string:"https://okaneno-gakko.jp/company")
+            let myRequest = URLRequest(url: myURL!)
+            webView.load(myRequest)
         case .contact:
-            pageSetWebView(path: "contact")
+            let myURL = URL(string:"https://okaneno-gakko.jp/contact")
+            let myRequest = URLRequest(url: myURL!)
+            webView.load(myRequest)
         }
     }
     func configureKurukuru(){
