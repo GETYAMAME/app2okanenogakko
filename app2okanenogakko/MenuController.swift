@@ -30,10 +30,14 @@ class MenuController: UIViewController {
         tableView.dataSource = self
         
         tableView.register(MenuOptionCell.self, forCellReuseIdentifier:reuseIdentifer)
-        tableView.backgroundColor = UIColor(red: 58/255, green: 162/255, blue: 164/255, alpha: 1)
-        tableView.separatorStyle = .none
+        tableView.backgroundColor = .clear
+        tableView.separatorStyle = .singleLine
         tableView.rowHeight = 60
         tableView.allowsSelection = true
+        tableView.isScrollEnabled = false
+        tableView.contentSize.height = 260
+        tableView.bounds.size.height = 260
+        view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 260)
         
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false

@@ -126,7 +126,7 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
             addChild(menuController)
             menuController.didMove(toParent: self)
             // menuControlleのviewを親viewの右横に配置する
-            self.menuController.view.frame.origin.x = self.view.frame.width
+            self.menuController.view.frame.origin.y = -self.view.frame.height
         }
     }
     
@@ -135,15 +135,15 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
             // show menu
             UIView.animate(withDuration: 0.3, delay: 0,
                            options: .curveEaseInOut,animations:{
-                            self.menuController.view.frame.origin.x = 0
+                            self.menuController.view.frame.origin.y = self.navigationController!.navigationBar.frame.size.height + UIApplication.shared.statusBarFrame.size.height
                             self.view.bringSubviewToFront(self.menuController.view)
             } , completion: nil)
             
         } else {
             // hide menu
             
-            UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
-                self.menuController.view.frame.origin.x = self.view.frame.width
+            UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseInOut, animations: {
+                self.menuController.view.frame.origin.y = -self.view.frame.height
             }) { (_) in
                 guard let menuOption = menuOption else { return }
                 self.didSelectMenuOption(menuOption: menuOption)
