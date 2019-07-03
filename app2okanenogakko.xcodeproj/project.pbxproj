@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		23E50B3FB16A02652EC6BF43 /* Pods_app2okanenogakkoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6548767CEC3FB6F0666116 /* Pods_app2okanenogakkoUITests.framework */; };
-		6360317B2296BDDC00D8C931 /* calender.png in Resources */ = {isa = PBXBuildFile; fileRef = 6360317A2296BDDC00D8C931 /* calender.png */; };
+		633F869C22CD06040098A866 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 633F869B22CD06030098A866 /* GoogleService-Info.plist */; };
+		633F869F22CD07130098A866 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 633F869D22CD07120098A866 /* info.png */; };
+		633F86A022CD07130098A866 /* calender.png in Resources */ = {isa = PBXBuildFile; fileRef = 633F869E22CD07130098A866 /* calender.png */; };
 		6360317D2296BEA900D8C931 /* note.png in Resources */ = {isa = PBXBuildFile; fileRef = 6360317C2296BEA900D8C931 /* note.png */; };
 		6391AF17229668AB007128BF /* AbstractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6391AF16229668AB007128BF /* AbstractViewController.swift */; };
-		639E912D2298F94B00A436AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 639E912C2298F94B00A436AF /* GoogleService-Info.plist */; };
 		63C410952294DE560079DC08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C410942294DE560079DC08 /* AppDelegate.swift */; };
 		63C410972294DE560079DC08 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C410962294DE560079DC08 /* FirstViewController.swift */; };
 		63C410992294DE560079DC08 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C410982294DE560079DC08 /* SecondViewController.swift */; };
@@ -29,6 +30,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		633F869822CD05C50098A866 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63CC626D2298D628009B58F2 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8AA5CED235D345CE436988AB14557728;
+			remoteInfo = FirebaseInstanceID;
+		};
 		638A9EFF2299693500BB51C2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 63CC626D2298D628009B58F2 /* Pods.xcodeproj */;
@@ -107,10 +115,11 @@
 		18C5C56F16A41BAC2DE9A29D /* Pods-app2okanenogakkoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-app2okanenogakkoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-app2okanenogakkoTests/Pods-app2okanenogakkoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		27AB8D766FD493085C4F6B31 /* Pods-app2okanenogakkoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-app2okanenogakkoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-app2okanenogakkoTests/Pods-app2okanenogakkoTests.release.xcconfig"; sourceTree = "<group>"; };
 		5F6548767CEC3FB6F0666116 /* Pods_app2okanenogakkoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_app2okanenogakkoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6360317A2296BDDC00D8C931 /* calender.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = calender.png; path = ../../../../Downloads/calender.png; sourceTree = "<group>"; };
+		633F869B22CD06030098A866 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		633F869D22CD07120098A866 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
+		633F869E22CD07130098A866 /* calender.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calender.png; sourceTree = "<group>"; };
 		6360317C2296BEA900D8C931 /* note.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = note.png; sourceTree = "<group>"; };
 		6391AF16229668AB007128BF /* AbstractViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractViewController.swift; sourceTree = "<group>"; };
-		639E912C2298F94B00A436AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		639E912E2298FCCD00A436AF /* app2okanenogakko.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = app2okanenogakko.entitlements; sourceTree = "<group>"; };
 		63C410912294DE560079DC08 /* app2okanenogakko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = app2okanenogakko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63C410942294DE560079DC08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -340,7 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				639E912E2298FCCD00A436AF /* app2okanenogakko.entitlements */,
-				639E912C2298F94B00A436AF /* GoogleService-Info.plist */,
+				633F869B22CD06030098A866 /* GoogleService-Info.plist */,
 				63F355082294F1A700059363 /* MenuController.swift */,
 				63F3550A2294F22D00059363 /* MenuOption.swift */,
 				63F355032294EAB100059363 /* image */,
@@ -398,6 +407,7 @@
 			isa = PBXGroup;
 			children = (
 				63CC632F2298D629009B58F2 /* FirebaseCore.framework */,
+				633F869922CD05C50098A866 /* FirebaseInstanceID.framework */,
 				638A9F002299693500BB51C2 /* FirebaseMessaging.framework */,
 				63CC63312298D629009B58F2 /* GoogleUtilities.framework */,
 				63CC63332298D629009B58F2 /* nanopb.framework */,
@@ -921,8 +931,9 @@
 		63F355032294EAB100059363 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				633F869E22CD07130098A866 /* calender.png */,
+				633F869D22CD07120098A866 /* info.png */,
 				6360317C2296BEA900D8C931 /* note.png */,
-				6360317A2296BDDC00D8C931 /* calender.png */,
 				63F355042294EAE500059363 /* logo.png */,
 			);
 			path = image;
@@ -1057,6 +1068,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		633F869922CD05C50098A866 /* FirebaseInstanceID.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FirebaseInstanceID.framework;
+			remoteRef = 633F869822CD05C50098A866 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		638A9F002299693500BB51C2 /* FirebaseMessaging.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -1121,12 +1139,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				63F355052294EAE500059363 /* logo.png in Resources */,
-				6360317B2296BDDC00D8C931 /* calender.png in Resources */,
+				633F869C22CD06040098A866 /* GoogleService-Info.plist in Resources */,
 				63C410A12294DE590079DC08 /* LaunchScreen.storyboard in Resources */,
+				633F86A022CD07130098A866 /* calender.png in Resources */,
 				63C4109E2294DE590079DC08 /* Assets.xcassets in Resources */,
 				63C4109C2294DE560079DC08 /* Main.storyboard in Resources */,
 				6360317D2296BEA900D8C931 /* note.png in Resources */,
-				639E912D2298F94B00A436AF /* GoogleService-Info.plist in Resources */,
+				633F869F22CD07130098A866 /* info.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
