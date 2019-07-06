@@ -8,6 +8,7 @@ target 'app2okanenogakko' do
   # Pods for app2okanenogakko
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
+  pod 'Realm'
 
   target 'app2okanenogakkoTests' do
     inherit! :search_paths

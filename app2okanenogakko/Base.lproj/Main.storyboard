@@ -26,16 +26,16 @@
             </objects>
             <point key="canvasLocation" x="1810.144927536232" y="680.35714285714278"/>
         </scene>
-        <!--Root View Controller-->
+        <!--お知らせ一覧-->
         <scene sceneID="Hjm-35-m7J">
             <objects>
-                <tableViewController id="Nlr-3s-y4M" sceneMemberID="viewController">
+                <tableViewController id="Nlr-3s-y4M" customClass="InfoListTableViewController" customModule="app2okanenogakko" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="e4y-U3-fMB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="oun-eX-xqy">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="oun-eX-xqy">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oun-eX-xqy" id="hZi-im-rf0">
@@ -49,7 +49,7 @@
                             <outlet property="delegate" destination="Nlr-3s-y4M" id="e4V-Yi-WrJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="KLX-nZ-Rm0"/>
+                    <navigationItem key="navigationItem" title="お知らせ一覧" id="KLX-nZ-Rm0"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qVM-j3-wEZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -11,6 +11,7 @@
 		633F869C22CD06040098A866 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 633F869B22CD06030098A866 /* GoogleService-Info.plist */; };
 		633F869F22CD07130098A866 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 633F869D22CD07120098A866 /* info.png */; };
 		633F86A022CD07130098A866 /* calender.png in Resources */ = {isa = PBXBuildFile; fileRef = 633F869E22CD07130098A866 /* calender.png */; };
+		633F86B122CD121F0098A866 /* InfoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633F86B022CD121F0098A866 /* InfoListTableViewController.swift */; };
 		6360317D2296BEA900D8C931 /* note.png in Resources */ = {isa = PBXBuildFile; fileRef = 6360317C2296BEA900D8C931 /* note.png */; };
 		6391AF17229668AB007128BF /* AbstractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6391AF16229668AB007128BF /* AbstractViewController.swift */; };
 		63C410952294DE560079DC08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C410942294DE560079DC08 /* AppDelegate.swift */; };
@@ -36,6 +37,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 8AA5CED235D345CE436988AB14557728;
 			remoteInfo = FirebaseInstanceID;
+		};
+		633F86AE22CD114D0098A866 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63CC626D2298D628009B58F2 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 37081C20257FFDD361017C34304C8F79;
+			remoteInfo = Realm;
 		};
 		638A9EFF2299693500BB51C2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -118,6 +126,7 @@
 		633F869B22CD06030098A866 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		633F869D22CD07120098A866 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
 		633F869E22CD07130098A866 /* calender.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calender.png; sourceTree = "<group>"; };
+		633F86B022CD121F0098A866 /* InfoListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoListTableViewController.swift; sourceTree = "<group>"; };
 		6360317C2296BEA900D8C931 /* note.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = note.png; sourceTree = "<group>"; };
 		6391AF16229668AB007128BF /* AbstractViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractViewController.swift; sourceTree = "<group>"; };
 		639E912E2298FCCD00A436AF /* app2okanenogakko.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = app2okanenogakko.entitlements; sourceTree = "<group>"; };
@@ -362,6 +371,7 @@
 				63C4109D2294DE590079DC08 /* Assets.xcassets */,
 				63C4109F2294DE590079DC08 /* LaunchScreen.storyboard */,
 				63C410A22294DE590079DC08 /* Info.plist */,
+				633F86B022CD121F0098A866 /* InfoListTableViewController.swift */,
 			);
 			path = app2okanenogakko;
 			sourceTree = "<group>";
@@ -415,6 +425,7 @@
 				63CC63372298D629009B58F2 /* Pods_app2okanenogakkoTests.framework */,
 				63CC63392298D629009B58F2 /* Pods_app2okanenogakkoUITests.framework */,
 				638A9F022299693500BB51C2 /* Protobuf.framework */,
+				633F86AF22CD114D0098A866 /* Realm.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1075,6 +1086,13 @@
 			remoteRef = 633F869822CD05C50098A866 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		633F86AF22CD114D0098A866 /* Realm.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Realm.framework;
+			remoteRef = 633F86AE22CD114D0098A866 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		638A9F002299693500BB51C2 /* FirebaseMessaging.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -1177,6 +1195,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-app2okanenogakko/Pods-app2okanenogakko-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1185,6 +1204,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1266,6 +1286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63F355092294F1A700059363 /* MenuController.swift in Sources */,
+				633F86B122CD121F0098A866 /* InfoListTableViewController.swift in Sources */,
 				63F3550D2294F2CD00059363 /* MenuOptionCell.swift in Sources */,
 				63C410992294DE560079DC08 /* SecondViewController.swift in Sources */,
 				63C410952294DE560079DC08 /* AppDelegate.swift in Sources */,

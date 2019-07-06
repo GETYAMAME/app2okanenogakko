@@ -63,10 +63,14 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - Protobuf (3.8.0)
+  - Realm (3.17.0):
+    - Realm/Headers (= 3.17.0)
+  - Realm/Headers (3.17.0)
 
 DEPENDENCIES:
   - Firebase/Core
   - Firebase/Messaging
+  - Realm
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -80,6 +84,7 @@ SPEC REPOS:
     - GoogleUtilities
     - nanopb
     - Protobuf
+    - Realm
 
 SPEC CHECKSUMS:
   Firebase: 8432d732974498afd5987e9001a05f90f1a3d625
@@ -92,7 +97,8 @@ SPEC CHECKSUMS:
   GoogleUtilities: c7a0b08bda3bf808be823ed151f0e28ac6866e71
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 3f617b9a6e73605565086864c9bc26b2bf2dd5a3
+  Realm: b30db41ff34fc858ffc25ba8d44a82c164e7ccd0
 
-PODFILE CHECKSUM: 1e464791ce3723afc5ee815884aee257589475fe
+PODFILE CHECKSUM: bd570d57b907f56beb8dbdd77670db8053772937
 
 COCOAPODS: 1.5.3
