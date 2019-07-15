@@ -38,25 +38,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
         return true
     }
+
+    // フォアグラウンドでPush通知を受け取った場合
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         // Print message ID.
-        if let messageID = userInfo["gcm.message_id"] {
-            print("Message ID: \(messageID)")
+        guard
+            let aps = userInfo[AnyHashable("aps")] as? NSDictionary,
+            let alert = aps["alert"] as? NSDictionary,
+            let body = alert["body"] as? String,
+            let title = alert["title"] as? String
+            else {
+                // handle any error here
+                return
         }
         
-        // Print full message.
-        print(userInfo)
+        print("Title: \(title) \nBody:\(body)")
+        //print(userInfo)
     }
     
+    // バックグラウンドでPush通知を受け取った場合
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         // Print message ID.
-        if let messageID = userInfo["gcm.message_id"] {
-            print("Message ID: \(messageID)")
+        guard
+            let aps = userInfo[AnyHashable("aps")] as? NSDictionary,
+            let alert = aps["alert"] as? NSDictionary,
+            let body = alert["body"] as? String,
+            let title = alert["title"] as? String
+            else {
+                // handle any error here
+                return
         }
         
-        // Print full message.
-        print(userInfo)
+        print("Title: \(title) \nBody:\(body)")
+        //print(userInfo)
         
         completionHandler(UIBackgroundFetchResult.newData)
     }
@@ -86,17 +101,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 @available(iOS 10, *)
+
 extension AppDelegate : UNUserNotificationCenterDelegate {
+
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let userInfo = notification.request.content.userInfo
         
-        if let messageID = userInfo["gcm.message_id"] {
-            print("Message ID: \(messageID)")
+        // Print message ID.
+        guard
+            let aps = userInfo[AnyHashable("aps")] as? NSDictionary,
+            let alert = aps["alert"] as? NSDictionary,
+            let body = alert["body"] as? String,
+            let title = alert["title"] as? String
+            else {
+                // handle any error here
+                return
         }
         
+        print("Title: \(title) \nBody:\(body)")
+        //print(userInfo)
+        
         print(userInfo)
+        
+        let center = UNUserNotificationCenter.current()
+        center.getPendingNotificationRequests { (requests) in
+            print("==========Pending Notification============")
+            print(requests)
+            
+        }
+        let center2 = UNUserNotificationCenter.current()
+        center2.getDeliveredNotifications { (notifications) in
+            print("==========Delivered Notification============")
+            print(notifications)
+        }
         
         completionHandler([])
     }
@@ -105,12 +144,34 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
-        if let messageID = userInfo["gcm.message_id"] {
-            print("Message ID: \(messageID)")
+        // Print message ID.
+        guard
+            let aps = userInfo[AnyHashable("aps")] as? NSDictionary,
+            let alert = aps["alert"] as? NSDictionary,
+            let body = alert["body"] as? String,
+            let title = alert["title"] as? String
+            else {
+                // handle any error here
+                return
         }
+        
+        print("Title: \(title) \nBody:\(body)")
         
         print(userInfo)
         
+        let center = UNUserNotificationCenter.current()
+        center.getPendingNotificationRequests { (requests) in
+            print("==========Pending Notification============")
+            print(requests)
+            
+        }
+        let center2 = UNUserNotificationCenter.current()
+        center2.getDeliveredNotifications { (notifications) in
+            print("==========Delivered Notification============")
+            print(notifications)
+        }
+        
         completionHandler()
     }
+    
 }
