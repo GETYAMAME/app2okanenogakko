@@ -57,7 +57,6 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
     // webview開始
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
         let pageCount = webView.backForwardList.backList.count
-        print(pageCount)
         if (0 < pageCount) {
             let back = UIBarButtonItem(title: "戻る",style: .plain,target: webView,action: #selector(webView.goBack))
             self.navigationItem.leftBarButtonItem = back
@@ -175,8 +174,6 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
         // UIActivityIndicatorViewを生成
         indicator = UIActivityIndicatorView()
         indicator.style = .gray
-        print(UIScreen.main.bounds.size.width)
-        print(UIScreen.main.bounds.size.height)
         indicator.transform = CGAffineTransform(scaleX: 3, y: 3)
         indicator.center = self.view.center
         indicator.hidesWhenStopped = true
