@@ -27,10 +27,16 @@ class InfoDetailViewController: UIViewController,UITextViewDelegate {
         // 表示させるテキスト
         title2.text = info["title"]
         message2.text = info["message"]
-        print(info)
         // labelをUIViewのサブビューに追加
         self.view.addSubview(title2)
         self.view.addSubview(message2)
+    }
+    // レイアウト処理終了（レイアウト処理の最後がサブビューのレイアウト調整）
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        //長文でスクロールが発生する場合に最終行ではなく、先頭行の文字が表示されるように設定
+        title2.setContentOffset(.zero, animated: false)
+        message2.setContentOffset(.zero, animated: false)
     }
     
 }
