@@ -50,10 +50,110 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="お知らせ一覧" id="KLX-nZ-Rm0"/>
+                    <connections>
+                        <segue destination="zPV-ae-wWL" kind="show" identifier="toInfoDetailViewController" id="jXd-5a-qVy"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qVM-j3-wEZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1835" y="1369"/>
+        </scene>
+        <!--Info Detail View Controller-->
+        <scene sceneID="jRc-Ui-09a">
+            <objects>
+                <viewController id="zPV-ae-wWL" customClass="InfoDetailViewController" customModule="app2okanenogakko" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="IZB-9O-HPP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.90000000000000002" contentMode="scaleToFill" ambiguous="YES" pagingEnabled="YES" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wa2-bh-FVX">
+                                <rect key="frame" x="24" y="283" width="370" height="542"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="551" id="dF3-rD-ckz"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="今月は新たにXXXXXという講座が追加になっています。ぜひ、申し込んでみてくださいね。">
+                                        <attributes>
+                                            <font key="NSFont" size="23" name=".HiraKakuInterface-W3"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.90000000000000002" contentMode="scaleToFill" pagingEnabled="YES" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ObQ-lm-lQr">
+                                <rect key="frame" x="24" y="164.00000000000003" width="370" height="59"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="59" id="tU5-ym-anG"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="７月のスケジュールを更新しました！">
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="23" name=".HiraKakuInterface-W3"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本文" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEy-Bq-0rt">
+                                <rect key="frame" x="17" y="239" width="110" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Daa-zf-MKE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3Z-lb-v6e">
+                                <rect key="frame" x="17" y="122.00000000000004" width="114" height="33.666666666666671"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ObQ-lm-lQr" firstAttribute="leading" secondItem="Bll-4a-qgq" secondAttribute="leading" constant="24" id="358-iE-JUZ"/>
+                            <constraint firstItem="F3Z-lb-v6e" firstAttribute="leading" secondItem="Bll-4a-qgq" secondAttribute="leading" constant="17" id="5ME-sM-KG0"/>
+                            <constraint firstItem="Bll-4a-qgq" firstAttribute="trailing" secondItem="eEy-Bq-0rt" secondAttribute="trailing" constant="287" id="9Ld-Ej-rnb"/>
+                            <constraint firstItem="Bll-4a-qgq" firstAttribute="trailing" secondItem="ObQ-lm-lQr" secondAttribute="trailing" constant="20" id="CCi-yM-ESy"/>
+                            <constraint firstItem="ObQ-lm-lQr" firstAttribute="top" secondItem="F3Z-lb-v6e" secondAttribute="bottom" constant="8" symbolic="YES" id="Ddw-gT-Ova"/>
+                            <constraint firstItem="wa2-bh-FVX" firstAttribute="leading" secondItem="Bll-4a-qgq" secondAttribute="leading" constant="24" id="HBp-8Y-jbE"/>
+                            <constraint firstItem="F3Z-lb-v6e" firstAttribute="top" secondItem="Bll-4a-qgq" secondAttribute="top" id="L8v-Td-RKk"/>
+                            <constraint firstItem="F3Z-lb-v6e" firstAttribute="top" secondItem="Bll-4a-qgq" secondAttribute="top" constant="34" id="Qhq-I1-Sw6"/>
+                            <constraint firstItem="eEy-Bq-0rt" firstAttribute="top" secondItem="ObQ-lm-lQr" secondAttribute="bottom" constant="8" id="Rhc-MR-3se"/>
+                            <constraint firstItem="wa2-bh-FVX" firstAttribute="leading" secondItem="ObQ-lm-lQr" secondAttribute="leading" id="Ryl-V7-iRY"/>
+                            <constraint firstItem="Bll-4a-qgq" firstAttribute="trailing" secondItem="wa2-bh-FVX" secondAttribute="trailing" constant="20" id="XeC-M4-9pU"/>
+                            <constraint firstItem="wa2-bh-FVX" firstAttribute="top" secondItem="eEy-Bq-0rt" secondAttribute="bottom" id="ZLP-a5-rCg"/>
+                            <constraint firstItem="wa2-bh-FVX" firstAttribute="top" secondItem="eEy-Bq-0rt" secondAttribute="bottom" constant="7" id="ZZM-jQ-50n"/>
+                            <constraint firstItem="eEy-Bq-0rt" firstAttribute="leading" secondItem="Bll-4a-qgq" secondAttribute="leading" constant="17" id="ava-SW-Rlz"/>
+                            <constraint firstItem="wa2-bh-FVX" firstAttribute="leading" secondItem="IZB-9O-HPP" secondAttribute="leading" id="cb0-c3-K7J"/>
+                            <constraint firstItem="eEy-Bq-0rt" firstAttribute="top" secondItem="ObQ-lm-lQr" secondAttribute="bottom" constant="16" id="cjt-2G-cKK"/>
+                            <constraint firstItem="wa2-bh-FVX" firstAttribute="trailing" secondItem="Bll-4a-qgq" secondAttribute="trailing" id="f5g-BF-CnV"/>
+                            <constraint firstItem="ObQ-lm-lQr" firstAttribute="trailing" secondItem="Bll-4a-qgq" secondAttribute="trailing" id="n10-fl-I6f"/>
+                            <constraint firstAttribute="trailing" secondItem="wa2-bh-FVX" secondAttribute="trailing" id="ttf-TQ-T1q"/>
+                            <constraint firstItem="Bll-4a-qgq" firstAttribute="bottom" secondItem="wa2-bh-FVX" secondAttribute="bottom" constant="22" id="v3j-pm-Zfb"/>
+                            <constraint firstItem="wa2-bh-FVX" firstAttribute="trailing" secondItem="ObQ-lm-lQr" secondAttribute="trailing" id="veq-BH-PBb"/>
+                            <constraint firstItem="eEy-Bq-0rt" firstAttribute="leading" secondItem="Bll-4a-qgq" secondAttribute="leading" constant="13" id="vqp-Lj-ZnJ"/>
+                            <constraint firstItem="ObQ-lm-lQr" firstAttribute="top" secondItem="F3Z-lb-v6e" secondAttribute="bottom" constant="8.3300000000000001" id="wL3-lE-5TY"/>
+                            <constraint firstItem="F3Z-lb-v6e" firstAttribute="leading" secondItem="eEy-Bq-0rt" secondAttribute="leading" id="zii-uM-a8A"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Bll-4a-qgq"/>
+                    </view>
+                    <connections>
+                        <outlet property="message2" destination="wa2-bh-FVX" id="k5Z-Lg-dUT"/>
+                        <outlet property="title2" destination="ObQ-lm-lQr" id="6cj-TL-g29"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8h9-zo-4wD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2669.5652173913045" y="1368.75"/>
         </scene>
         <!--お知らせ-->
         <scene sceneID="UtL-EZ-sZ5">

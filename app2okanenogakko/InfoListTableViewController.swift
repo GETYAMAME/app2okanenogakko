@@ -13,6 +13,8 @@ class InfoListTableViewController: UITableViewController {
 
     // お知らせリスト
     var infoList = [[String:String]]()
+    // お知らせリスト
+    var info = [String:String]()
     // インスタンス変数
     var DBRef:DatabaseReference!
     
@@ -61,12 +63,12 @@ class InfoListTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
     }
     
-    //追加③ セルの個数を指定するデリゲートメソッド（必須）
+    //セルの個数を指定するデリゲートメソッド（必須）
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return infoList.count
     }
     
-    //追加④ セルに値を設定するデータソースメソッド（必須）
+    //セルに値を設定するデータソースメソッド（必須）
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // セルを取得する
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
@@ -74,5 +76,25 @@ class InfoListTableViewController: UITableViewController {
         cell.textLabel!.text = infoList[indexPath.row]["title"]
         return cell
     }
+    
+    // セルタップ時のアクション
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // セルの選択を解除
+        tableView.deselectRow(at: indexPath, animated: true)
+        // 遷移先に引き渡すパラメータを設定
+        self.info = self.infoList[indexPath.row]
+        // 別の画面に遷移
+        self.performSegue(withIdentifier: "toInfoDetailViewController", sender: nil)
+    }
+
+    //遷移する際の処理
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toInfoDetailViewController" {
+            let infoDetailViewController = segue.destination as! InfoDetailViewController
+            infoDetailViewController.info = self.info
+        }
+    }
+    
 
 }
+

@@ -8,15 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		23E50B3FB16A02652EC6BF43 /* Pods_app2okanenogakkoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6548767CEC3FB6F0666116 /* Pods_app2okanenogakkoUITests.framework */; };
+		63204D0B22DDBF24001AA8BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63204D0922DDBF24001AA8BE /* Main.storyboard */; };
 		633F869F22CD07130098A866 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 633F869D22CD07120098A866 /* info.png */; };
 		633F86A022CD07130098A866 /* calender.png in Resources */ = {isa = PBXBuildFile; fileRef = 633F869E22CD07130098A866 /* calender.png */; };
 		633F86B122CD121F0098A866 /* InfoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633F86B022CD121F0098A866 /* InfoListTableViewController.swift */; };
 		6360317D2296BEA900D8C931 /* note.png in Resources */ = {isa = PBXBuildFile; fileRef = 6360317C2296BEA900D8C931 /* note.png */; };
 		6391AF17229668AB007128BF /* AbstractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6391AF16229668AB007128BF /* AbstractViewController.swift */; };
+		63BCAF4122DCD7A30014036A /* InfoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BCAF4022DCD7A20014036A /* InfoDetailViewController.swift */; };
 		63C410952294DE560079DC08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C410942294DE560079DC08 /* AppDelegate.swift */; };
 		63C410972294DE560079DC08 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C410962294DE560079DC08 /* FirstViewController.swift */; };
 		63C410992294DE560079DC08 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C410982294DE560079DC08 /* SecondViewController.swift */; };
-		63C4109C2294DE560079DC08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63C4109A2294DE560079DC08 /* Main.storyboard */; };
 		63C4109E2294DE590079DC08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63C4109D2294DE590079DC08 /* Assets.xcassets */; };
 		63C410A12294DE590079DC08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63C4109F2294DE590079DC08 /* LaunchScreen.storyboard */; };
 		63C410AC2294DE590079DC08 /* app2okanenogakkoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C410AB2294DE590079DC08 /* app2okanenogakkoTests.swift */; };
@@ -40,13 +41,6 @@
 			remoteGlobalIDString = 8AA5CED235D345CE436988AB14557728;
 			remoteInfo = FirebaseInstanceID;
 		};
-		633F86AE22CD114D0098A866 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 63CC626D2298D628009B58F2 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 37081C20257FFDD361017C34304C8F79;
-			remoteInfo = Realm;
-		};
 		638A9EFF2299693500BB51C2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 63CC626D2298D628009B58F2 /* Pods.xcodeproj */;
@@ -60,6 +54,20 @@
 			proxyType = 2;
 			remoteGlobalIDString = FCF1807B104D2937B2388BEF749BA8C8;
 			remoteInfo = Protobuf;
+		};
+		63BCAF4D22DCD7A40014036A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63CC626D2298D628009B58F2 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 79F791D86D89A4A44D743160CB579D43;
+			remoteInfo = FirebaseDatabase;
+		};
+		63BCAF4F22DCD7A40014036A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63CC626D2298D628009B58F2 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AAF6198ABE06DE337FA416438B43161F;
+			remoteInfo = "leveldb-library";
 		};
 		63C410A82294DE590079DC08 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -146,17 +154,18 @@
 		18C5C56F16A41BAC2DE9A29D /* Pods-app2okanenogakkoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-app2okanenogakkoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-app2okanenogakkoTests/Pods-app2okanenogakkoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		27AB8D766FD493085C4F6B31 /* Pods-app2okanenogakkoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-app2okanenogakkoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-app2okanenogakkoTests/Pods-app2okanenogakkoTests.release.xcconfig"; sourceTree = "<group>"; };
 		5F6548767CEC3FB6F0666116 /* Pods_app2okanenogakkoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_app2okanenogakkoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63204D0A22DDBF24001AA8BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		633F869D22CD07120098A866 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
 		633F869E22CD07130098A866 /* calender.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calender.png; sourceTree = "<group>"; };
 		633F86B022CD121F0098A866 /* InfoListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoListTableViewController.swift; sourceTree = "<group>"; };
 		6360317C2296BEA900D8C931 /* note.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = note.png; sourceTree = "<group>"; };
 		6391AF16229668AB007128BF /* AbstractViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractViewController.swift; sourceTree = "<group>"; };
 		639E912E2298FCCD00A436AF /* app2okanenogakko.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = app2okanenogakko.entitlements; sourceTree = "<group>"; };
+		63BCAF4022DCD7A20014036A /* InfoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDetailViewController.swift; sourceTree = "<group>"; };
 		63C410912294DE560079DC08 /* app2okanenogakko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = app2okanenogakko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63C410942294DE560079DC08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63C410962294DE560079DC08 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		63C410982294DE560079DC08 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		63C4109B2294DE560079DC08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		63C4109D2294DE590079DC08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63C410A02294DE590079DC08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63C410A22294DE590079DC08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -392,6 +401,7 @@
 		63C410932294DE560079DC08 /* app2okanenogakko */ = {
 			isa = PBXGroup;
 			children = (
+				63204D0922DDBF24001AA8BE /* Main.storyboard */,
 				639E912E2298FCCD00A436AF /* app2okanenogakko.entitlements */,
 				63D6E2DC22D0D6FF002BA130 /* GoogleService-Info.plist */,
 				63F355082294F1A700059363 /* MenuController.swift */,
@@ -402,11 +412,11 @@
 				6391AF16229668AB007128BF /* AbstractViewController.swift */,
 				63C410982294DE560079DC08 /* SecondViewController.swift */,
 				63F3550C2294F2CD00059363 /* MenuOptionCell.swift */,
-				63C4109A2294DE560079DC08 /* Main.storyboard */,
 				63C4109D2294DE590079DC08 /* Assets.xcassets */,
 				63C4109F2294DE590079DC08 /* LaunchScreen.storyboard */,
 				63C410A22294DE590079DC08 /* Info.plist */,
 				633F86B022CD121F0098A866 /* InfoListTableViewController.swift */,
+				63BCAF4022DCD7A20014036A /* InfoDetailViewController.swift */,
 			);
 			path = app2okanenogakko;
 			sourceTree = "<group>";
@@ -452,15 +462,16 @@
 			isa = PBXGroup;
 			children = (
 				63CC632F2298D629009B58F2 /* FirebaseCore.framework */,
+				63BCAF4E22DCD7A40014036A /* FirebaseDatabase.framework */,
 				633F869922CD05C50098A866 /* FirebaseInstanceID.framework */,
 				638A9F002299693500BB51C2 /* FirebaseMessaging.framework */,
 				63CC63312298D629009B58F2 /* GoogleUtilities.framework */,
+				63BCAF5022DCD7A40014036A /* leveldb.framework */,
 				63CC63332298D629009B58F2 /* nanopb.framework */,
 				63CC63352298D629009B58F2 /* Pods_app2okanenogakko.framework */,
 				63CC63372298D629009B58F2 /* Pods_app2okanenogakkoTests.framework */,
 				63CC63392298D629009B58F2 /* Pods_app2okanenogakkoUITests.framework */,
 				638A9F022299693500BB51C2 /* Protobuf.framework */,
-				633F86AF22CD114D0098A866 /* Realm.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1153,13 +1164,6 @@
 			remoteRef = 633F869822CD05C50098A866 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		633F86AF22CD114D0098A866 /* Realm.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Realm.framework;
-			remoteRef = 633F86AE22CD114D0098A866 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		638A9F002299693500BB51C2 /* FirebaseMessaging.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -1172,6 +1176,20 @@
 			fileType = wrapper.framework;
 			path = Protobuf.framework;
 			remoteRef = 638A9F012299693500BB51C2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63BCAF4E22DCD7A40014036A /* FirebaseDatabase.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FirebaseDatabase.framework;
+			remoteRef = 63BCAF4D22DCD7A40014036A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		63BCAF5022DCD7A40014036A /* leveldb.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = leveldb.framework;
+			remoteRef = 63BCAF4F22DCD7A40014036A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		63CC632F2298D629009B58F2 /* FirebaseCore.framework */ = {
@@ -1226,9 +1244,9 @@
 				63F355052294EAE500059363 /* logo.png in Resources */,
 				63D6E2DD22D0D6FF002BA130 /* GoogleService-Info.plist in Resources */,
 				63C410A12294DE590079DC08 /* LaunchScreen.storyboard in Resources */,
+				63204D0B22DDBF24001AA8BE /* Main.storyboard in Resources */,
 				633F86A022CD07130098A866 /* calender.png in Resources */,
 				63C4109E2294DE590079DC08 /* Assets.xcassets in Resources */,
-				63C4109C2294DE560079DC08 /* Main.storyboard in Resources */,
 				6360317D2296BEA900D8C931 /* note.png in Resources */,
 				633F869F22CD07130098A866 /* info.png in Resources */,
 			);
@@ -1362,6 +1380,7 @@
 				63F355092294F1A700059363 /* MenuController.swift in Sources */,
 				633F86B122CD121F0098A866 /* InfoListTableViewController.swift in Sources */,
 				63F3550D2294F2CD00059363 /* MenuOptionCell.swift in Sources */,
+				63BCAF4122DCD7A30014036A /* InfoDetailViewController.swift in Sources */,
 				63C410992294DE560079DC08 /* SecondViewController.swift in Sources */,
 				63C410952294DE560079DC08 /* AppDelegate.swift in Sources */,
 				63F3550B2294F22D00059363 /* MenuOption.swift in Sources */,
@@ -1415,10 +1434,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		63C4109A2294DE560079DC08 /* Main.storyboard */ = {
+		63204D0922DDBF24001AA8BE /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				63C4109B2294DE560079DC08 /* Base */,
+				63204D0A22DDBF24001AA8BE /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
