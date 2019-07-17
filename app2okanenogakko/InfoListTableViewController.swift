@@ -17,7 +17,7 @@ class InfoListTableViewController: UITableViewController {
     var info = [String:String]()
     // インスタンス変数
     var DBRef:DatabaseReference!
-    
+
     //最初からあるコード
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +37,7 @@ class InfoListTableViewController: UITableViewController {
             self.infoList = [[String:String]]()
             for data in snap.children {
                 let snapdata = data as! DataSnapshot
+                //１つのデータ
                 let item = snapdata.value as! [String:String]
                 self.infoList.append(item)
             }
@@ -72,8 +73,12 @@ class InfoListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // セルを取得する
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        // セルに表示する値を設定する
-        cell.textLabel!.text = infoList[indexPath.row]["title"]
+        // DBを手動編集するためキーに「title」が設定されていなかった場合、何も表示しない
+        if infoList[indexPath.row]["title"] == nil {
+            cell.textLabel!.text = ""
+        } else{
+            cell.textLabel!.text = infoList[indexPath.row]["title"]
+        }
         return cell
     }
     

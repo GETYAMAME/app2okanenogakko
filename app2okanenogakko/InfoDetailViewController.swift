@@ -24,9 +24,18 @@ class InfoDetailViewController: UIViewController,UITextViewDelegate {
     }
     // view表示時に毎度起動
     override func viewWillAppear(_ animated: Bool){
-        // 表示させるテキスト
-        title2.text = info["title"]
-        message2.text = info["message"]
+        // DBを手動編集するためキーに「title」が設定されていなかった場合、何も表示しない
+        if info["title"] == nil {
+            title2.text = ""
+        } else {
+            title2.text = info["title"]
+        }
+        // DBを手動編集するためキーに「message」が設定されていなかった場合、何も表示しない
+        if info["message"] == nil {
+            message2.text = ""
+        } else {
+            message2.text = info["message"]
+        }
         // labelをUIViewのサブビューに追加
         self.view.addSubview(title2)
         self.view.addSubview(message2)
