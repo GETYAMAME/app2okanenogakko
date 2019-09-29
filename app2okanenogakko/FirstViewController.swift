@@ -24,6 +24,7 @@ class FirstViewController: UIViewController,WKUIDelegate,WKNavigationDelegate,UI
     var selectedAgeCode = 0 // 0:20代 1:30代 2:40代以上
     var selectedLearnCode = 0 //0:投資 1:ビジネス(副業) 2:投資とビジネス(副業)
     
+    
     // MARK: - 初期表示
     override func viewDidLoad() {
         super.viewDidLoad()
