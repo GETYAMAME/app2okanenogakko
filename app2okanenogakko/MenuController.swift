@@ -15,7 +15,7 @@ class MenuController: UIViewController {
     // MARK: - プロパティ
     
     var tableView: UITableView!
-    var delegate: AbstractViewController?
+    var delegate: FirstViewController?
     
     // MARK: - 初期表示
     override func viewDidLoad() {

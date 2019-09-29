@@ -15,7 +15,7 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
     var isExpanded = false
     var delegate: AbstractViewController!
     var indicator: UIActivityIndicatorView!
-    private var webView:WKWebView!
+    public var webView:WKWebView!
     // MARK: - 初期表示
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,7 +120,7 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
         if menuController == nil {
             // add our menu controller here
             menuController = MenuController()
-            menuController.delegate = self
+            //menuController.delegate = self
             view.insertSubview(menuController.view,at: 0)
             addChild(menuController)
             menuController.didMove(toParent: self)

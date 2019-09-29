@@ -39,6 +39,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    struct Preference {
+        static let userDefault = UserDefaults.standard
+
+        struct Key {
+            static let FirstLaunchedAt = "first_launched_at"
+        }
+    }
     // フォアグラウンドでPush通知を受け取った場合
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         // Print message ID.
@@ -173,5 +180,4 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         
         completionHandler()
     }
-    
 }
