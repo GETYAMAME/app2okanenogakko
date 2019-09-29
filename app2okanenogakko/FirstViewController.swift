@@ -7,14 +7,13 @@
 //
 import UIKit
 import WebKit
-class FirstViewController: UIViewController,WKUIDelegate,WKNavigationDelegate,UIPickerViewDelegate, UIPickerViewDataSource  {
-
+class FirstViewController: UIViewController,WKUIDelegate,WKNavigationDelegate,UIPickerViewDelegate, UIPickerViewDataSource{
+    
 
     @IBOutlet weak var uiPickerViewLearn: UIPickerView!
     @IBOutlet weak var uiPickerViewAge: UIPickerView!
     @IBOutlet var initView: UIView!
     @IBOutlet weak var coverView: UIView!
-    
     var menuController: MenuController!
     var indicator: UIActivityIndicatorView!
     var isExpanded = false
@@ -24,7 +23,7 @@ class FirstViewController: UIViewController,WKUIDelegate,WKNavigationDelegate,UI
     let textsLearn = ["投資","ビジネス(副業)","投資とビジネス(副業)"]
     var selectedAgeCode = 0 // 0:20代 1:30代 2:40代以上
     var selectedLearnCode = 0 //0:投資 1:ビジネス(副業) 2:投資とビジネス(副業)
-
+    
     // MARK: - 初期表示
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -225,6 +224,7 @@ class FirstViewController: UIViewController,WKUIDelegate,WKNavigationDelegate,UI
         }
         label.font = UIFont(name: "System",size:5)
         return label
-
     }
+    
+
 }

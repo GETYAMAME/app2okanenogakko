@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+class Lecture : NSObject {
+    var name:NSString
+    var imageUrl:NSURL?
+
+    init(name: String, imageUrl: NSURL?){
+        self.name = name as NSString
+        self.imageUrl = imageUrl
+    }
+}
