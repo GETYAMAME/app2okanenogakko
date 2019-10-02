@@ -238,6 +238,7 @@
                         <outlet property="tableView" destination="Rps-Ti-qo9" id="Szm-wO-Yy3"/>
                         <outlet property="uiPickerViewAge" destination="8po-6D-Hnv" id="ayV-5A-1VH"/>
                         <outlet property="uiPickerViewLearn" destination="ZuJ-Ol-5BQ" id="2WX-3M-enw"/>
+                        <segue destination="BC4-hg-RQ1" kind="show" identifier="toWebviewVC" id="1Qj-YE-U62"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yth-8q-Mlk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -329,6 +330,32 @@
                 </view>
             </objects>
             <point key="canvasLocation" x="1810.144927536232" y="34.821428571428569"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="thj-hR-3D4">
+            <objects>
+                <viewController id="BC4-hg-RQ1" customClass="WebViewController" customModule="app2okanenogakko" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tnA-c7-np1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xD3-Qz-SBB">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="eVh-eM-wwq"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="4PD-PV-Zba"/>
+                    <connections>
+                        <outlet property="webview" destination="xD3-Qz-SBB" id="ddZ-Zg-Uhx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JaQ-QU-AC3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2769.5652173913045" y="34.821428571428569"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="aOm-j2-q8R">

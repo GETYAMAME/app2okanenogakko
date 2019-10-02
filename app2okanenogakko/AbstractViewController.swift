@@ -120,7 +120,7 @@ class AbstractViewController: UIViewController, WKUIDelegate,WKNavigationDelegat
         if menuController == nil {
             // add our menu controller here
             menuController = MenuController()
-            //menuController.delegate = self
+            menuController.delegate = self
             view.insertSubview(menuController.view,at: 0)
             addChild(menuController)
             menuController.didMove(toParent: self)

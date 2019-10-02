@@ -9,7 +9,7 @@ import UIKit
 import WebKit
 import Firebase
 
-class FirstViewController: UIViewController,WKUIDelegate,WKNavigationDelegate,UIPickerViewDelegate, UIPickerViewDataSource,UITableViewDataSource, UITableViewDelegate{
+class FirstViewController:AbstractViewController,UIPickerViewDelegate, UIPickerViewDataSource,UITableViewDataSource, UITableViewDelegate{
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mylectureList.count
@@ -28,6 +28,40 @@ class FirstViewController: UIViewController,WKUIDelegate,WKNavigationDelegate,UI
         }
         return cell
     }
+    // セルタップ時のアクション
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //セルの選択解除
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        // 遷移先に引き渡すパラメータを設定
+        self.selectedUrl = self.mylectureList[indexPath.row]["linkUrl"]!
+        // 別の画面に遷移
+        self.performSegue(withIdentifier: "toWebviewVC", sender: nil)
+    }
+    //遷移する際の処理
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toWebviewVC" {
+            let WebViewController = segue.destination as! WebViewController
+            WebViewController.myURLString = selectedUrl
+        }
+    }
+    //
+    override func didSelectMenuOption(menuOption: MenuOption) {
+        switch menuOption {
+        // 遷移先に引き渡すパラメータを設定
+        case .about:
+            self.selectedUrl = "https://okaneno-gakko.jp/about"
+        case .first_challenge:
+            self.selectedUrl = "https://okaneno-gakko.jp/first_challenge"
+        case .company:
+            self.selectedUrl = "https://okaneno-gakko.jp/company"
+        case .contact:
+            self.selectedUrl = "https://okaneno-gakko.jp/contact"
+        }
+        // 別の画面に遷移
+        self.performSegue(withIdentifier: "toWebviewVC", sender: nil)
+    }
+
     // view表示時に毎度起動
     override func viewWillAppear(_ animated: Bool){
         loadInfomation()
@@ -70,6 +104,7 @@ class FirstViewController: UIViewController,WKUIDelegate,WKNavigationDelegate,UI
     }
     
     // お知らせリスト
+    var selectedUrl: String = ""
     var sortList = [String]()
     var lectureList = [[String:String]]()
     var myList = [String:String]()
@@ -79,9 +114,6 @@ class FirstViewController: UIViewController,WKUIDelegate,WKNavigationDelegate,UI
     @IBOutlet var initView: UIView!
     @IBOutlet weak var coverView: UIView!
     @IBOutlet weak var tableView: UITableView!
-    var menuController: MenuController!
-    var indicator: UIActivityIndicatorView!
-    var isExpanded = false
     let CONST_KEY_SORT: String = "CONST_KEY_SORT"
     let textsAge = ["20代","30代","40代以上"]
     let textsLearn = ["投資","ビジネス(副業)","投資とビジネス(副業)"]
@@ -144,101 +176,6 @@ class FirstViewController: UIViewController,WKUIDelegate,WKNavigationDelegate,UI
         self.coverView.addSubview(initView)
     }
 
-    func cofigureNavigationBar(){
-        // ロゴ設定
-        let imageView = UIImageView(image:UIImage(named:"logo.png"))
-        imageView.contentMode = .scaleAspectFit
-        self.navigationItem.titleView = imageView
-        // 戻るボタン設定
-        let backButtonItem = UIBarButtonItem(title: "戻る", style: .plain, target: nil, action: nil)
-        backButtonItem.tintColor = .lightGray
-        navigationItem.leftBarButtonItem = backButtonItem
-        // メニュー設定
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Image") .withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleMenuToggle))
-    }
-    
-    // メニューボタン制御
-    @objc func handleMenuToggle(){
-        handleMenuToggleImple(forMenuOption: nil)
-    }
-    // メニューボタン制御の実装部分（MenuControllerから呼び出されるケースを想定）
-    func handleMenuToggleImple(forMenuOption menuOption: MenuOption?){
-        if !isExpanded {
-            configureMenuController()
-        }
-        
-        isExpanded = !isExpanded
-        animatePanel(shouldExpand: isExpanded, forMenuOption: menuOption)
-    }
-    
-    // メニュー部分の初期設定
-    func configureMenuController() {
-        if menuController == nil {
-            // add our menu controller here
-            menuController = MenuController()
-            menuController.delegate = self
-            view.insertSubview(menuController.view,at: 0)
-            addChild(menuController)
-            menuController.didMove(toParent: self)
-            // menuControlleのviewを親viewの右横に配置する
-            self.menuController.view.frame.origin.y = -self.view.frame.height
-        }
-    }
-    
-    func animatePanel(shouldExpand: Bool,forMenuOption menuOption: MenuOption?){
-        if shouldExpand {
-            // show menu
-            UIView.animate(withDuration: 0.3, delay: 0,
-                           options: .curveEaseInOut,animations:{
-                            self.menuController.view.frame.origin.y = self.navigationController!.navigationBar.frame.size.height + UIApplication.shared.statusBarFrame.size.height
-                            self.view.bringSubviewToFront(self.menuController.view)
-            } , completion: nil)
-            
-        } else {
-            // hide menu
-            
-            UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseInOut, animations: {
-                self.menuController.view.frame.origin.y = -self.view.frame.height
-            }) { (_) in
-                guard let menuOption = menuOption else { return }
-                self.didSelectMenuOption(menuOption: menuOption)
-            }
-        }
-    }
-    func didSelectMenuOption(menuOption: MenuOption) {
-        let webConfiguration = WKWebViewConfiguration()
-        let webView = WKWebView(frame:.zero, configuration: webConfiguration)
-        webView.uiDelegate = self
-        webView.navigationDelegate = self
-        switch menuOption {
-            
-        case .about:
-            let myURL = URL(string:"https://okaneno-gakko.jp/about")
-            let myRequest = URLRequest(url: myURL!)
-            webView.load(myRequest)
-        case .first_challenge:
-            let myURL = URL(string:"https://okaneno-gakko.jp/first_challenge")
-            let myRequest = URLRequest(url: myURL!)
-            webView.load(myRequest)
-        case .company:
-            let myURL = URL(string:"https://okaneno-gakko.jp/company")
-            let myRequest = URLRequest(url: myURL!)
-            webView.load(myRequest)
-        case .contact:
-            let myURL = URL(string:"https://okaneno-gakko.jp/contact")
-            let myRequest = URLRequest(url: myURL!)
-            webView.load(myRequest)
-        }
-    }
-    // 読込中のくるくる回るアニメーション
-    func configureKurukuru(){
-        // UIActivityIndicatorViewを生成
-        indicator = UIActivityIndicatorView()
-        indicator.style = .gray
-        indicator.transform = CGAffineTransform(scaleX: 3, y: 3)
-        indicator.center = self.view.center
-        indicator.hidesWhenStopped = true
-    }
 
     // MARK: - picker設定
     // pickerの列の数
@@ -288,6 +225,5 @@ class FirstViewController: UIViewController,WKUIDelegate,WKNavigationDelegate,UI
         label.font = UIFont(name: "System",size:5)
         return label
     }
-    
 
 }
