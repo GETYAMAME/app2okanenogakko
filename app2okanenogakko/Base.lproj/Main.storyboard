@@ -223,7 +223,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" id="2Of-Ci-Lyo">
-                                <rect key="frame" x="0.0" y="481" width="414" height="415"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="0.68477662852112675" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>

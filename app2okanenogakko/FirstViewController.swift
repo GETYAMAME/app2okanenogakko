@@ -59,7 +59,7 @@ class FirstViewController:AbstractViewController,UIPickerViewDelegate, UIPickerV
             self.selectedUrl = "https://okaneno-gakko.jp/contact"
         }
         // 別の画面に遷移
-        self.performSegue(withIdentifier: "toWebviewVC", sender: nil)
+        self.performSegue(withIdentifier: "toWebViewController", sender: nil)
     }
 
     // view表示時に毎度起動
