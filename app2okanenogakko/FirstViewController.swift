@@ -7,24 +7,88 @@
 //
 import UIKit
 import WebKit
-class FirstViewController: UIViewController,WKUIDelegate,WKNavigationDelegate,UIPickerViewDelegate, UIPickerViewDataSource{
-    
+import Firebase
 
+class FirstViewController: UIViewController,WKUIDelegate,WKNavigationDelegate,UIPickerViewDelegate, UIPickerViewDataSource,UITableViewDataSource, UITableViewDelegate{
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return mylectureList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
+        // UIImage インスタンスの生成
+        let url = URL(string: mylectureList[indexPath.row]["imageUrl"]!)
+        do {
+            let data = try Data(contentsOf: url!)
+            let urlImage = UIImage(data: data)!
+              cell.setCells(title: mylectureList[indexPath.row]["title"]!, detail: mylectureList[indexPath.row]["detail"]! ,image: urlImage)
+         }catch let err {
+              print("Error : \(err.localizedDescription)")
+        }
+        return cell
+    }
+    // view表示時に毎度起動
+    override func viewWillAppear(_ animated: Bool){
+        loadInfomation()
+    }
+
+    func loadInfomation() {
+        //データベース参照
+        let ref = Database.database().reference(fromURL: "https://okaneno-gakko-40016.firebaseio.com/")
+        ref.child("sort").observe(.value) { (snap) in
+            // ソート順を取得
+            for data in snap.children {
+                let snapdata = data as! DataSnapshot
+                //１つのデータ
+                let item = snapdata.value as! String
+                self.sortList.append(item)
+            }
+        }
+        ref.child("lecture").observe(.value) { (snap) in
+            // 講座一覧を取得
+            for data in snap.children {
+                let snapdata = data as! DataSnapshot
+                //１つのデータ
+                let item = snapdata.value as! [String:String]
+                self.lectureList.append(item)
+            }
+        }
+        
+    }
+    // 画面表示する項目を並べ替える
+    func sortData(){
+        let defaults = UserDefaults.standard
+        let sortCode = defaults.string(forKey: self.CONST_KEY_SORT)
+        let mySort = self.sortList[Int(sortCode!)!]
+        let mySortList = mySort.components(separatedBy: ",")
+        for sortnum in mySortList {
+           mylectureList.append((lectureList[Int(sortnum)! - 1]))
+        }
+        //tableViewを更新
+        self.tableView.reloadData()
+    }
+    
+    // お知らせリスト
+    var sortList = [String]()
+    var lectureList = [[String:String]]()
+    var myList = [String:String]()
+    var mylectureList = [[String:String]]()
     @IBOutlet weak var uiPickerViewLearn: UIPickerView!
     @IBOutlet weak var uiPickerViewAge: UIPickerView!
     @IBOutlet var initView: UIView!
     @IBOutlet weak var coverView: UIView!
+    @IBOutlet weak var tableView: UITableView!
     var menuController: MenuController!
     var indicator: UIActivityIndicatorView!
     var isExpanded = false
-    let CONST_KEY_AGE: String = "CONST_KEY_AGE"
-    let CONST_KEY_LEARN: String = "CONST_KEY_LEARN"
+    let CONST_KEY_SORT: String = "CONST_KEY_SORT"
     let textsAge = ["20代","30代","40代以上"]
     let textsLearn = ["投資","ビジネス(副業)","投資とビジネス(副業)"]
     var selectedAgeCode = 0 // 0:20代 1:30代 2:40代以上
     var selectedLearnCode = 0 //0:投資 1:ビジネス(副業) 2:投資とビジネス(副業)
-    
-    
+
+
     // MARK: - 初期表示
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,19 +100,17 @@ class FirstViewController: UIViewController,WKUIDelegate,WKNavigationDelegate,UI
         cofigureNavigationBar()
         configureKurukuru()
         let defaults = UserDefaults.standard
-        if let stringOne = defaults.string(forKey: CONST_KEY_AGE) {
+        if let stringOne = defaults.string(forKey: CONST_KEY_SORT) {
             print(stringOne) // Some String Value
-        }
-        if let stringTwo = defaults.string(forKey: CONST_KEY_LEARN) {
-            print(stringTwo) // Another String Value
         }
         animatedIn()
     }
     // MARK: - サブビュー：登録ボタン押下
     @IBAction func regist(_ sender: Any) {
         let defaults = UserDefaults.standard
-        defaults.set(selectedAgeCode, forKey: CONST_KEY_AGE)
-        defaults.set(selectedLearnCode, forKey: CONST_KEY_LEARN)
+        let selectSortCode = (selectedAgeCode * 3) + selectedLearnCode
+        defaults.set(selectSortCode, forKey: CONST_KEY_SORT)
+        self.sortData()
         initView.removeFromSuperview()
         self.coverView.isHidden = true
     }
@@ -56,8 +118,8 @@ class FirstViewController: UIViewController,WKUIDelegate,WKNavigationDelegate,UI
     // MARK: - サブビュー：キャンセルボタン押下
     @IBAction func cancel(_ sender: Any) {
         let defaults = UserDefaults.standard
-        defaults.set("1", forKey: CONST_KEY_AGE) //キャンセルの場合、年齢は30代に設定
-        defaults.set("2", forKey: CONST_KEY_LEARN) //キャンセルの場合、学びたいことは投資とビジネスに設定
+        defaults.set("5", forKey: CONST_KEY_SORT) //キャンセルの場合、30代で学びたいことは投資とビジネスに設定
+        self.sortData()
         initView.removeFromSuperview()
         self.coverView.isHidden = true
     }
