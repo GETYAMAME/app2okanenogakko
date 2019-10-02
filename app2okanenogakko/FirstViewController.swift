@@ -36,11 +36,11 @@ class FirstViewController:AbstractViewController,UIPickerViewDelegate, UIPickerV
         // 遷移先に引き渡すパラメータを設定
         self.selectedUrl = self.mylectureList[indexPath.row]["linkUrl"]!
         // 別の画面に遷移
-        self.performSegue(withIdentifier: "toWebviewVC", sender: nil)
+        self.performSegue(withIdentifier: "toWebViewController", sender: nil)
     }
     //遷移する際の処理
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toWebviewVC" {
+        if segue.identifier == "toWebViewController" {
             let WebViewController = segue.destination as! WebViewController
             WebViewController.myURLString = selectedUrl
         }
