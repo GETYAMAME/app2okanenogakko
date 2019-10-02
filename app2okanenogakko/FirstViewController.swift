@@ -71,6 +71,8 @@ class FirstViewController:AbstractViewController,UIPickerViewDelegate, UIPickerV
         //データベース参照
         let ref = Database.database().reference(fromURL: "https://okaneno-gakko-40016.firebaseio.com/")
         ref.child("sort").observe(.value) { (snap) in
+            // 初期化
+            self.sortList = [String]()
             // ソート順を取得
             for data in snap.children {
                 let snapdata = data as! DataSnapshot
@@ -80,6 +82,8 @@ class FirstViewController:AbstractViewController,UIPickerViewDelegate, UIPickerV
             }
         }
         ref.child("lecture").observe(.value) { (snap) in
+            //初期化
+            self.lectureList = [[String:String]]()
             // 講座一覧を取得
             for data in snap.children {
                 let snapdata = data as! DataSnapshot
@@ -87,11 +91,16 @@ class FirstViewController:AbstractViewController,UIPickerViewDelegate, UIPickerV
                 let item = snapdata.value as! [String:String]
                 self.lectureList.append(item)
             }
+            let defaults = UserDefaults.standard
+            // 初期表示ではない かつ データ取得を行なっている場合にデータの並びかえを行う
+            if defaults.string(forKey: self.CONST_KEY_SORT) != nil && self.lectureList.isEmpty == false {
+                self.sortData()
+            }
         }
-        
     }
     // 画面表示する項目を並べ替える
     func sortData(){
+        mylectureList = [[String:String]]()
         let defaults = UserDefaults.standard
         let sortCode = defaults.string(forKey: self.CONST_KEY_SORT)
         let mySort = self.sortList[Int(sortCode!)!]
@@ -107,7 +116,6 @@ class FirstViewController:AbstractViewController,UIPickerViewDelegate, UIPickerV
     var selectedUrl: String = ""
     var sortList = [String]()
     var lectureList = [[String:String]]()
-    var myList = [String:String]()
     var mylectureList = [[String:String]]()
     @IBOutlet weak var uiPickerViewLearn: UIPickerView!
     @IBOutlet weak var uiPickerViewAge: UIPickerView!
@@ -133,9 +141,12 @@ class FirstViewController:AbstractViewController,UIPickerViewDelegate, UIPickerV
         configureKurukuru()
         let defaults = UserDefaults.standard
         if let stringOne = defaults.string(forKey: CONST_KEY_SORT) {
+            initView.removeFromSuperview()
+            self.coverView.isHidden = true
             print(stringOne) // Some String Value
+        } else {
+            animatedIn()
         }
-        animatedIn()
     }
     // MARK: - サブビュー：登録ボタン押下
     @IBAction func regist(_ sender: Any) {
