@@ -64,6 +64,7 @@ class FirstViewController:AbstractViewController,UIPickerViewDelegate, UIPickerV
 
     // view表示時に毎度起動
     override func viewWillAppear(_ animated: Bool){
+        self.tableView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.tableView.frame.height)
         loadInfomation()
     }
 
@@ -141,35 +142,33 @@ class FirstViewController:AbstractViewController,UIPickerViewDelegate, UIPickerV
         configureKurukuru()
         let defaults = UserDefaults.standard
         // iPhoneの各機種に対応できるように調整
-        self.tableView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         self.coverView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-        /**
+        self.tableView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.tableView.frame.height)
         if let stringOne = defaults.string(forKey: CONST_KEY_SORT) {
             initView.removeFromSuperview()
             self.coverView.isHidden = true
             print(stringOne) // Some String Value
         } else {
             animatedIn()
-        }*/
-        animatedIn()
+        }
     }
     // MARK: - サブビュー：登録ボタン押下
     @IBAction func regist(_ sender: Any) {
         let defaults = UserDefaults.standard
         let selectSortCode = (selectedAgeCode * 3) + selectedLearnCode
         defaults.set(selectSortCode, forKey: CONST_KEY_SORT)
-        self.sortData()
         initView.removeFromSuperview()
         self.coverView.isHidden = true
+        self.sortData()
     }
 
     // MARK: - サブビュー：キャンセルボタン押下
     @IBAction func cancel(_ sender: Any) {
         let defaults = UserDefaults.standard
         defaults.set("5", forKey: CONST_KEY_SORT) //キャンセルの場合、30代で学びたいことは投資とビジネスに設定
-        self.sortData()
         initView.removeFromSuperview()
         self.coverView.isHidden = true
+        self.sortData()
     }
     
     func animatedIn(){
