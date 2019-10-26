@@ -177,37 +177,37 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="319"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="キャッシュフローゲーム会" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xkk-Sj-Um6">
-                                                    <rect key="frame" x="-20" y="238" width="0.0" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="「金持ち父さん」から受けたお金持ちになるための教育や考え方を身につけられるファイナンシャル教育ボードゲームです。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hq4-lz-e7l">
-                                                    <rect key="frame" x="20" y="257" width="0.0" height="50"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="「金持ち父さん」から受けたお金持ちになるための教育や考え方を身につけられるファイナンシャル教育ボードゲームです。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hq4-lz-e7l">
+                                                    <rect key="frame" x="16" y="258" width="398" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="zGf-VX-I3C"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jp7-jT-tIY">
-                                                    <rect key="frame" x="-403" y="0.0" width="392" height="228"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jp7-jT-tIY">
+                                                    <rect key="frame" x="8" y="0.0" width="398" height="228"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="228" id="bzV-2f-28r"/>
-                                                        <constraint firstAttribute="width" constant="392" id="pYv-eG-NXM"/>
+                                                        <constraint firstAttribute="height" constant="228" id="uK3-sv-BDj"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="キャッシュフローゲーム会" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xkk-Sj-Um6">
+                                                    <rect key="frame" x="15" y="236" width="208" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="jp7-jT-tIY" firstAttribute="top" secondItem="4f0-Yw-klh" secondAttribute="topMargin" constant="-11" id="55t-6l-Eq1"/>
-                                                <constraint firstItem="Hq4-lz-e7l" firstAttribute="leading" secondItem="4f0-Yw-klh" secondAttribute="leadingMargin" constant="5" id="6OW-fS-p3t"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Xkk-Sj-Um6" secondAttribute="trailing" constant="20" symbolic="YES" id="9ek-bU-y3t"/>
-                                                <constraint firstItem="jp7-jT-tIY" firstAttribute="leading" secondItem="4f0-Yw-klh" secondAttribute="leadingMargin" constant="-8" id="B85-lj-IYc"/>
-                                                <constraint firstItem="Hq4-lz-e7l" firstAttribute="top" secondItem="jp7-jT-tIY" secondAttribute="bottom" constant="29" id="OtR-SH-gYA"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Hq4-lz-e7l" secondAttribute="bottom" constant="1" id="h4K-UP-Wn1"/>
-                                                <constraint firstItem="Xkk-Sj-Um6" firstAttribute="leading" secondItem="4f0-Yw-klh" secondAttribute="leadingMargin" id="k0w-FF-tOp"/>
-                                                <constraint firstAttribute="trailing" secondItem="jp7-jT-tIY" secondAttribute="trailing" constant="11" id="sz4-7Z-RJM"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Hq4-lz-e7l" secondAttribute="trailing" constant="20" id="yGW-Gl-gXN"/>
-                                                <constraint firstItem="Xkk-Sj-Um6" firstAttribute="top" secondItem="jp7-jT-tIY" secondAttribute="bottom" constant="10" id="zIl-8f-RrX"/>
+                                                <constraint firstItem="Xkk-Sj-Um6" firstAttribute="top" secondItem="jp7-jT-tIY" secondAttribute="bottom" constant="8" id="7Tc-Fd-bF8"/>
+                                                <constraint firstItem="Hq4-lz-e7l" firstAttribute="bottom" secondItem="4f0-Yw-klh" secondAttribute="bottomMargin" id="On0-cu-nG4"/>
+                                                <constraint firstItem="jp7-jT-tIY" firstAttribute="centerX" secondItem="4f0-Yw-klh" secondAttribute="centerX" id="RBP-vb-r34"/>
+                                                <constraint firstItem="jp7-jT-tIY" firstAttribute="leading" secondItem="4f0-Yw-klh" secondAttribute="leading" constant="8" id="Rdw-F7-P33"/>
+                                                <constraint firstItem="Xkk-Sj-Um6" firstAttribute="leading" secondItem="4f0-Yw-klh" secondAttribute="leadingMargin" id="XQT-oM-VfD"/>
+                                                <constraint firstItem="Hq4-lz-e7l" firstAttribute="leading" secondItem="4f0-Yw-klh" secondAttribute="leadingMargin" constant="1" id="kGM-51-UUS"/>
+                                                <constraint firstItem="jp7-jT-tIY" firstAttribute="top" secondItem="4f0-Yw-klh" secondAttribute="top" id="moZ-Rl-m97"/>
+                                                <constraint firstItem="jp7-jT-tIY" firstAttribute="trailing" secondItem="Hq4-lz-e7l" secondAttribute="trailing" constant="-8" id="snI-gq-LQD"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -223,7 +223,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" id="2Of-Ci-Lyo">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="474" width="414" height="422"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="0.68477662852112675" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -329,7 +329,7 @@
                     <viewLayoutGuide key="safeArea" id="wvl-UA-X0C"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="1807.2" y="33.733133433283363"/>
+            <point key="canvasLocation" x="1804.3478260869567" y="32.8125"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="thj-hR-3D4">

@@ -17,15 +17,7 @@ class FirstViewController:AbstractViewController,UIPickerViewDelegate, UIPickerV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
-        // UIImage インスタンスの生成
-        let url = URL(string: mylectureList[indexPath.row]["imageUrl"]!)
-        do {
-            let data = try Data(contentsOf: url!)
-            let urlImage = UIImage(data: data)!
-              cell.setCells(title: mylectureList[indexPath.row]["title"]!, detail: mylectureList[indexPath.row]["detail"]! ,image: urlImage)
-         }catch let err {
-              print("Error : \(err.localizedDescription)")
-        }
+        cell.setCells(title: mylectureList[indexPath.row]["title"]!, detail: mylectureList[indexPath.row]["detail"]! ,image: myImageList[indexPath.row])
         return cell
     }
     // セルタップ時のアクション
@@ -107,8 +99,18 @@ class FirstViewController:AbstractViewController,UIPickerViewDelegate, UIPickerV
         let mySort = self.sortList[Int(sortCode!)!]
         let mySortList = mySort.components(separatedBy: ",")
         for sortnum in mySortList {
-           mylectureList.append((lectureList[Int(sortnum)! - 1]))
+            mylectureList.append((lectureList[Int(sortnum)! - 1]))
+            let url = URL(string: lectureList[Int(sortnum)! - 1]["imageUrl"]!)
+            do {
+                let data = try Data(contentsOf: url!)
+                let urlImage = UIImage(data: data)!
+                myImageList.append(urlImage)
+             }catch let err {
+                  print("Error : \(err.localizedDescription)")
+            }
         }
+        // UIImage インスタンスの生成
+
         //tableViewを更新
         self.tableView.reloadData()
     }
@@ -123,6 +125,7 @@ class FirstViewController:AbstractViewController,UIPickerViewDelegate, UIPickerV
     @IBOutlet var initView: UIView!
     @IBOutlet weak var coverView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    var myImageList = [UIImage]()
     let CONST_KEY_SORT: String = "CONST_KEY_SORT"
     let textsAge = ["20代","30代","40代以上"]
     let textsLearn = ["投資","ビジネス(副業)","投資とビジネス(副業)"]
@@ -143,7 +146,7 @@ class FirstViewController:AbstractViewController,UIPickerViewDelegate, UIPickerV
         let defaults = UserDefaults.standard
         // iPhoneの各機種に対応できるように調整
         self.coverView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-        self.tableView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.tableView.frame.height)
+        self.tableView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         if let stringOne = defaults.string(forKey: CONST_KEY_SORT) {
             initView.removeFromSuperview()
             self.coverView.isHidden = true
