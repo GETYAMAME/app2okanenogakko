@@ -140,13 +140,18 @@ class FirstViewController:AbstractViewController,UIPickerViewDelegate, UIPickerV
         cofigureNavigationBar()
         configureKurukuru()
         let defaults = UserDefaults.standard
+        // iPhoneの各機種に対応できるように調整
+        self.tableView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        self.coverView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        /**
         if let stringOne = defaults.string(forKey: CONST_KEY_SORT) {
             initView.removeFromSuperview()
             self.coverView.isHidden = true
             print(stringOne) // Some String Value
         } else {
             animatedIn()
-        }
+        }*/
+        animatedIn()
     }
     // MARK: - サブビュー：登録ボタン押下
     @IBAction func regist(_ sender: Any) {
@@ -165,17 +170,6 @@ class FirstViewController:AbstractViewController,UIPickerViewDelegate, UIPickerV
         self.sortData()
         initView.removeFromSuperview()
         self.coverView.isHidden = true
-    }
-
-    
-    // MARK: - 関数
-    func setView(){
-        initView.layer.cornerRadius = 5
-        initView.center = self.view.center
-        initView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
-        initView.alpha = 1
-        self.tabBarController?.view.addSubview(coverView)
-        self.coverView.addSubview(initView)
     }
     
     func animatedIn(){

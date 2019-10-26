@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y0T-ku-drY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y0T-ku-drY">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -80,7 +80,7 @@
                                     <fragment content="７月のスケジュールを更新しました！">
                                         <attributes>
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                            <font key="NSFont" size="18" name=".HiraKakuInterface-W3"/>
+                                            <font key="NSFont" metaFont="system" size="18"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -103,7 +103,7 @@
                                 <attributedString key="attributedText">
                                     <fragment content="今月は新たにXXXXXという講座が追加になっています。ぜひ、申し込んでみてくださいね。">
                                         <attributes>
-                                            <font key="NSFont" size="18" name=".HiraKakuInterface-W3"/>
+                                            <font key="NSFont" metaFont="system" size="18"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -165,19 +165,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="319" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rps-Ti-qo9">
-                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="319" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rps-Ti-qo9">
+                                <rect key="frame" x="0.0" y="44" width="414" height="574"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="319" id="tEi-cm-zpH" customClass="TableViewCell" customModule="app2okanenogakko" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="319"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="319"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tEi-cm-zpH" id="4f0-Yw-klh">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="319"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="319"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="キャッシュフローゲーム会" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xkk-Sj-Um6">
-                                                    <rect key="frame" x="15" y="249" width="208" height="21"/>
+                                                    <rect key="frame" x="15" y="238" width="208" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -192,7 +192,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jp7-jT-tIY">
-                                                    <rect key="frame" x="11" y="11" width="353" height="228"/>
+                                                    <rect key="frame" x="7" y="0.0" width="396" height="228"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="228" id="bzV-2f-28r"/>
                                                         <constraint firstAttribute="width" constant="392" id="pYv-eG-NXM"/>
@@ -202,13 +202,10 @@
                                             <constraints>
                                                 <constraint firstItem="jp7-jT-tIY" firstAttribute="top" secondItem="4f0-Yw-klh" secondAttribute="topMargin" constant="-11" id="55t-6l-Eq1"/>
                                                 <constraint firstItem="jp7-jT-tIY" firstAttribute="leading" secondItem="4f0-Yw-klh" secondAttribute="leadingMargin" constant="-8" id="B85-lj-IYc"/>
-                                                <constraint firstItem="jp7-jT-tIY" firstAttribute="leading" secondItem="4f0-Yw-klh" secondAttribute="leading" constant="11" id="Iwa-7S-O2h"/>
                                                 <constraint firstItem="Hq4-lz-e7l" firstAttribute="top" secondItem="jp7-jT-tIY" secondAttribute="bottom" constant="29" id="Lzp-pz-S4A"/>
-                                                <constraint firstItem="Xkk-Sj-Um6" firstAttribute="top" secondItem="jp7-jT-tIY" secondAttribute="bottom" constant="16" id="hsp-h0-6hc"/>
                                                 <constraint firstItem="Xkk-Sj-Um6" firstAttribute="leading" secondItem="4f0-Yw-klh" secondAttribute="leadingMargin" id="k0w-FF-tOp"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Hq4-lz-e7l" secondAttribute="bottom" constant="3" id="khP-kX-cXe"/>
                                                 <constraint firstAttribute="trailing" secondItem="jp7-jT-tIY" secondAttribute="trailing" constant="11" id="sz4-7Z-RJM"/>
-                                                <constraint firstItem="jp7-jT-tIY" firstAttribute="top" secondItem="4f0-Yw-klh" secondAttribute="top" constant="11" id="t30-30-fKe"/>
                                                 <constraint firstItem="Xkk-Sj-Um6" firstAttribute="leading" secondItem="Hq4-lz-e7l" secondAttribute="leading" id="tp9-A0-Wls"/>
                                                 <constraint firstItem="Xkk-Sj-Um6" firstAttribute="top" secondItem="jp7-jT-tIY" secondAttribute="bottom" constant="10" id="zIl-8f-RrX"/>
                                             </constraints>
@@ -233,9 +230,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Rps-Ti-qo9" firstAttribute="trailing" secondItem="bPH-aQ-lBs" secondAttribute="trailing" id="7Kx-QF-vRV"/>
+                            <constraint firstItem="2Of-Ci-Lyo" firstAttribute="width" secondItem="Rps-Ti-qo9" secondAttribute="width" id="Z2p-rw-Vqq"/>
                             <constraint firstItem="Rps-Ti-qo9" firstAttribute="bottom" secondItem="bPH-aQ-lBs" secondAttribute="bottom" id="mv1-vQ-KIs"/>
                             <constraint firstItem="Rps-Ti-qo9" firstAttribute="leading" secondItem="bPH-aQ-lBs" secondAttribute="leading" id="o5I-SE-DPt"/>
+                            <constraint firstItem="2Of-Ci-Lyo" firstAttribute="width" secondItem="Rps-Ti-qo9" secondAttribute="width" id="sZe-aG-YZg"/>
                             <constraint firstItem="Rps-Ti-qo9" firstAttribute="top" secondItem="bPH-aQ-lBs" secondAttribute="top" id="x1l-dL-rs9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bPH-aQ-lBs"/>
@@ -338,7 +336,7 @@
                     <viewLayoutGuide key="safeArea" id="wvl-UA-X0C"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="1808.8" y="34.632683658170919"/>
+            <point key="canvasLocation" x="1807.2" y="33.733133433283363"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="thj-hR-3D4">
