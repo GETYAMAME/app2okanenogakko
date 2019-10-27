@@ -1533,6 +1533,7 @@
 				CODE_SIGN_ENTITLEMENTS = app2okanenogakko/app2okanenogakko.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 24J2RBFD36;
 				INFOPLIST_FILE = app2okanenogakko/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1557,7 +1558,8 @@
 				CODE_SIGN_ENTITLEMENTS = app2okanenogakko/app2okanenogakko.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YBNG4JC79J;
+				CURRENT_PROJECT_VERSION = 8;
+				DEVELOPMENT_TEAM = 24J2RBFD36;
 				INFOPLIST_FILE = app2okanenogakko/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
